@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- APEX UNIFIED — a single solid V silhouette with a small blue
+       triangle inset at the top of the right blade. One unified mark
+       with one quiet accent. Resolves the "fragmented" feel by
+       collapsing three pieces into one continuous outline. -->
+  <path
+    d="M 16 14 L 26 14 L 50 78 L 74 14 L 84 14 L 56 90 L 44 90 Z"
+    fill="#ffffff"
+  />
+  <!-- Quiet brand-blue triangle at the top of the right blade,
+       resting INSIDE the V silhouette (no escape past the frame). -->
+  <path d="M 62 18 L 78 18 L 70 36 Z" fill="#2563EB"/>
+</svg>

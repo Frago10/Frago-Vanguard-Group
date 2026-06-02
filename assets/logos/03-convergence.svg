@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- CONVERGENCE: 5 thin parallel lines converging on a single point.
+       Mathematical, architectural — "many becoming one". The rightmost
+       line is brand blue, marking the leading edge of the vanguard.
+       Reads strongly even at 16px favicon size. -->
+  <g stroke-linecap="square">
+    <path d="M 14 14 L 50 86" stroke="#ffffff" stroke-width="3" fill="none"/>
+    <path d="M 26 14 L 50 86" stroke="#ffffff" stroke-width="3" fill="none"/>
+    <path d="M 38 14 L 50 86" stroke="#ffffff" stroke-width="3" fill="none"/>
+    <path d="M 62 14 L 50 86" stroke="#ffffff" stroke-width="3" fill="none"/>
+    <path d="M 74 14 L 50 86" stroke="#ffffff" stroke-width="3" fill="none"/>
+    <!-- Leading-edge brand-blue line -->
+    <path d="M 86 14 L 50 86" stroke="#2563EB" stroke-width="3" fill="none"/>
+  </g>
+</svg>

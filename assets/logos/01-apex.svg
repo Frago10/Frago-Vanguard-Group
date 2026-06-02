@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- APEX: refined evolution of the current mark
+       The blue "tip" reaches HIGHER than the left blade — creating
+       a sense of rising vanguard, of leadership pointing forward.
+       Same divided right-blade structure, golden-ratio tuned. -->
+  <path d="M 18 14 L 28 14 L 50 88 L 46 88 Z" fill="#ffffff"/>
+  <path d="M 50 88 L 58 56 L 54 54 Z" fill="#ffffff"/>
+  <path d="M 56 6 L 78 14 L 64 44 L 46 38 Z" fill="#2563EB"/>
+</svg>

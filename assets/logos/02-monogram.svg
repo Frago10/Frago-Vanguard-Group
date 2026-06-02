@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- MONOGRAM: a thick solid chevron V (white) with a brand-blue
+       diamond floating inside the V opening. Reads as an institutional
+       monogram — a frame holding a gem. Highly legible at any size,
+       monochrome-compatible (blue diamond can become white when 1-color). -->
+  <path
+    d="M 12 16 L 30 16 L 50 78 L 70 16 L 88 16 L 60 94 L 40 94 Z"
+    fill="#ffffff"
+  />
+  <!-- Blue diamond floating in the V opening -->
+  <path d="M 50 30 L 60 44 L 50 58 L 40 44 Z" fill="#2563EB"/>
+</svg>

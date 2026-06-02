@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- APEX MONOLINE — the V reduced to a single thin stroke, a hairline
+       inscription. A small brand-blue dot inhabits the V opening as
+       the only color event. Maximum restraint, maximum elegance.
+       Reads beautifully on letterhead, embossed, foil-stamped. -->
+  <path
+    d="M 14 14 L 50 86 L 86 14"
+    stroke="#ffffff"
+    stroke-width="3.5"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+    fill="none"
+  />
+  <!-- Single brand-blue dot inside the V opening -->
+  <circle cx="50" cy="40" r="5" fill="#2563EB"/>
+</svg>

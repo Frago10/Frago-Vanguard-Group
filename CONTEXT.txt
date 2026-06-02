@@ -1,0 +1,242 @@
+FRAGO VANGUARD GROUP — Project Context Snapshot
+═══════════════════════════════════════════════════
+Generated for conversation restart. Read this first.
+
+
+1 ─── PROJECT OVERVIEW ──────────────────────────────
+
+Web project: a premium institutional corporate website for "Frago Vanguard
+Group" — a multi-business-unit holding/ecosystem. Path on disk:
+
+  C:\Users\jeanp\OneDrive\מסמכים\Frago corp\Frago Vanguard Group\
+
+Sibling projects in the same OneDrive folder (do NOT modify from this one,
+but their LogoMark.tsx files are the source of truth for the explore modal
+logos):
+
+  ..\Fragos Nexus Intelligence\components\brand\LogoMark.tsx
+  ..\Fragos Momentum Media\components\brand\LogoMark.tsx
+
+Origin of the firm: SAN JOSÉ, COSTA RICA (NOT Mexico City — common mistake
+in earlier rounds, do not re-introduce). Lat/Lon: 9.9281° N, 84.0907° W.
+Footer locale row reads "CR · ES · EN".
+
+
+2 ─── BRAND IDENTITY ────────────────────────────────
+
+Visual language:
+  - Background: #0A0A0A (deep black)
+  - Brand accent: #2563EB (Vanguard blue) — the ONLY brand color
+  - Text: #f5f5f7 primary, #c7c7cc secondary, #8a8a90 tertiary
+  - Type: General Sans / Satoshi (display) + Inter (body) + JetBrains Mono
+
+Logo (V mark): SEAL design — hairline outer ring + brand-blue arc at
+upper-right rim + clean V inscribed inside. Used in 5 places via SVG sprite
+(#v-mark). Geometry:
+  Circle: cx=40 cy=40 r=33 stroke=currentColor stroke-width=1.4
+  Arc:    M 40 7 A 33 33 0 0 1 73 40, stroke=#2563EB stroke-width=2.8
+  V:      M 22 26 L 40 62 L 58 26, stroke=currentColor stroke-width=4
+
+Brand vocabulary (Spanish — KEPT in both EN and ES locales, never translated):
+  Impacto · Escalabilidad · Evolución constante
+  Innovación · Confianza · Propósito · Crecimiento
+
+Tagline: "Built to grow together." / "Construido para crecer juntos."
+
+
+3 ─── BUSINESS UNITS (explore modal) ────────────────
+
+Three sub-brands accessible via "Explora nuestros servicios" button in nav:
+
+  01 NEXUS INTELLIGENCE — neon green #A6FF00
+     Logo: HEX CORE (outer hex + inner hex + 6 facets + diagonal slash +
+     pulsing center). Exact geometry replicated from
+     Fragos Nexus Intelligence/components/brand/LogoMark.tsx
+
+  02 MOMENTUM DIGITAL — magenta #ff2d8d
+     Logo: Sharp Chevron (outer white chevron + inner magenta chevron +
+     base line). Exact geometry replicated from
+     Fragos Momentum Media/components/brand/LogoMark.tsx
+
+  03 FRAGO FOOTBALL GROUP — gold #d4af37
+     Logo: heraldic shield + inner chevron + crown star (no source project
+     available; designed here, can be iterated)
+
+Hover behavior: the modal backdrop is "ambientized" in that brand's color
+via a registered @property --explore-ambient-c so transitions interpolate
+smoothly between brand washes (not a hard snap).
+
+
+4 ─── TECH STACK ────────────────────────────────────
+
+Pure vanilla, no build step:
+  - HTML5 (semantic, single index.html)
+  - CSS3 (single main.css, ~96KB)
+  - ES module JS (single main.js, ~84KB), loaded via <script type="module">
+
+External dependencies (loaded async via ESM CDN):
+  - three@0.160.0 (esm.sh) — ambient particle field + nebula + constellation
+  - lenis@1.0.42 (esm.sh) — smooth scroll (progressive enhancement)
+  - Fontshare (General Sans + Satoshi) — preloaded non-blocking
+  - Google Fonts (Inter + JetBrains Mono) — preloaded non-blocking
+
+
+5 ─── FILE STRUCTURE ────────────────────────────────
+
+  index.html              ~62KB  — main page, all sections, data-i18n attrs
+  404.html                ~5KB   — custom 404 page with brand language
+  styles/main.css         ~96KB  — design system + all components
+  scripts/main.js         ~84KB  — interaction layer + i18n dictionary
+  manifest.webmanifest    ~1KB   — PWA manifest
+  sw.js                   ~2KB   — service worker (HTTPS-only)
+  assets/favicon.svg      — SEAL favicon
+  assets/og.svg           — OpenGraph share card
+  assets/logos/preview.html — 6 elegant APEX-derived logo proposals
+  assets/logos/*.svg      — Individual logo concept files
+  CONTEXT.txt             — THIS FILE
+
+
+6 ─── PAGE STRUCTURE (sections in order) ────────────
+
+  1. Preloader (SEAL draw-in animation: ring → arc → V)
+  2. Custom cursor (4 states: idle, link, button, text)
+  3. Cursor trail (fading particles)
+  4. Locale switcher (floating bottom-right EN/ES pill)
+  5. Explore modal (3 business unit cards, hover ambient)
+  6. Section progress rail (left side, 7 dots)
+  7. Ambient backdrop (Three.js: 2000 particles + nebula + constellation)
+  8. Nav (glass pill, scroll-aware)
+  9. Hero (char-split title + scroll-driven V + flow field canvas)
+ 10. Marquee (velocity-driven, scroll-boosted)
+ 11. Vision (4 pillars expandible w/ chips + drop cap on lead)
+ 12. Ecosystem (Bento 4-card grid: Capital, Studios, Council, Futures)
+ 13. Approach (4 steps with brand-color draw-in rules)
+ 14. Capabilities (4 stats with Stripe-style odometer)
+ 15. Timeline (4 milestones, current=2026 with pulse)
+ 16. Pinned Manifesto (400vh sticky, 4 stages, rotating V, tags)
+ 17. Featured initiative (Vanguard Futures showcase + chart)
+ 18. Cinema (350vh horizontal scrollytelling, 3 panels)
+ 19. Partners marquee (institutional names)
+ 20. Insights (3 article cards)
+ 21. Lockup (oversized IMPACTO/escalabilidad/EVOLUCIÓN)
+ 22. CTA (form with glass + magnetic submit)
+ 23. Footer (4 cols, brand mark, locale row)
+
+
+7 ─── INTERACTIVE FEATURES IMPLEMENTED ──────────────
+
+Animation/motion:
+  - Char-level hero reveal (Apple Vision Pro style, ~28ms stagger/char)
+  - Text scramble (@webloved style) on kickers + chrome labels
+  - Magnetic cursor (4 states with mix-blend-mode: difference)
+  - Magnetic buttons (translate toward cursor)
+  - Cursor trail (additive particles, throttled 14ms)
+  - 3D hero V tilt (mouse parallax via CSS vars)
+  - Scroll-driven hero (V drift + title fade)
+  - Hero flow field (2D canvas, full viewport width, scroll-fade)
+  - Constellation lines (Three.js, dynamic node connections)
+  - Nebula shader plane (FBM noise, brand color flow)
+  - Particle field (2000 stars, mouse parallax)
+  - Conic rotating borders (featured + bento feature cards)
+  - Step rule draw-in (Approach section, left-to-right brand line)
+  - Velocity-based scroll skew (Apple style, ±1.2deg cap)
+  - Velocity-driven marquee (JS-driven, boosts with scroll velocity)
+  - Pinned manifesto (4 stages, V rotates 360°, tags illuminate)
+  - Cinema horizontal pinned scroll (3 panels, JS-driven translate)
+  - Lockup parallax (lines drift opposite directions)
+  - Counter odometer (Stripe-style digit roll)
+  - Section progress rail (live updates active dot, scroll progress fill)
+  - Accent rule before kickers (scaleX 0→1 on enter)
+  - Pillar expand on hover (chips stagger + CTA reveal)
+  - Bento cards spotlight (radial gradient follows cursor)
+
+Production/PWA:
+  - prefers-reduced-motion respected throughout
+  - Service worker (stale-while-revalidate, HTTPS-only registration)
+  - PWA manifest with shortcuts
+  - Custom 404 page
+  - Print stylesheet (editorial reduction, white bg, no animations)
+  - Scroll-snap soft on sections (>1280px viewport only)
+
+
+8 ─── LOCALE (EN ⇄ ES) ──────────────────────────────
+
+Floating EN/ES toggle bottom-right (always visible).
+
+Engine: data-i18n / data-i18n-html / data-i18n-aria attributes drive
+dictionary lookup in TRANSLATIONS object inside main.js. Persists to
+localStorage["fvg-locale"].
+
+Hero title re-runs char-split on locale change (innerHTML replaced →
+splitTextRoot rebuilds chars → .is-in added → cinematic re-entry plays).
+
+Brand vocabulary (Impacto, Confianza, etc.) stays in Spanish in both
+locales — it's the brand, not a translation.
+
+Translations are voice-coherent, NOT literal:
+  - "compound" verb → "componerse"
+  - "patient capital" → "capital paciente"
+  - "operators" → "operadores"
+  - "long horizon" → "horizonte largo"
+
+
+9 ─── KNOWN GOOD STATE OF VISUAL POLISH ─────────────
+
+Recent fixes applied (round on user feedback "se ve cortado"):
+  - Locale pill: removed opacity:0 initial state, fully visible from
+    page load. z-index bumped to 90, border brightness +.
+  - .grad-text: padding-right 0.18em + negative margin -0.18em + display
+    inline-block. Fixes "conviction" / "institutions" italic-slant clipping.
+  - .hero__title em + .cta__title em + .pinned__stage-title em +
+    .cinema__panel-title em: all bumped from padding-right 0.05em to
+    0.16em with matching negative margin. Fixes "to grow" italic clip.
+  - .char-mask: padding right 0.12 → 0.2em, padding bottom 0.3 → 0.35em.
+    Wider clip box prevents any italic/descender clipping.
+  - .vision__lead drop cap: font-size 3.6em → 2.6em, line-height 0.84 →
+    1.05, padding bumped. Fixes "W" being cut at top.
+  - .lockup__line bold/italic: font-size reduced ~30% for better balance
+    (bold 280px → 180px max, italic 320px → 210px max).
+  - Mexico City references removed everywhere → "SAN JOSÉ, CR · 2025"
+    and footer locale "CR · ES · EN".
+
+
+10 ── HOW TO CONTINUE THIS PROJECT ──────────────────
+
+On conversation restart, the model should:
+
+  a) Re-read this CONTEXT.txt before any other file.
+  b) Use Read/Grep tools to inspect index.html, main.css, main.js as needed.
+  c) Default to EN-first development; brand vocab stays in Spanish.
+  d) Keep design language: deep black + brand blue accent, sharp angular
+     SEAL mark, restraint over flash, institutional voice.
+  e) Always honor prefers-reduced-motion in new motion features.
+  f) Test text in BOTH locales when adding new content (add data-i18n
+     attr + entry in BOTH TRANSLATIONS.en and TRANSLATIONS.es).
+  g) Never re-introduce "Mexico City" — the firm is from San José, CR.
+
+To serve locally:
+  cd "C:\Users\jeanp\OneDrive\מסמכים\Frago corp\Frago Vanguard Group"
+  python -m http.server 8000
+  → open http://localhost:8000
+
+User preferences from prior rounds (memory file):
+  - Windows + OneDrive paths with Hebrew chars
+  - Prefers font links over imports for Google Fonts SSL issues
+  - Multi-brand portfolio under "Frago corp" parent dir
+
+
+11 ── OPEN / DEFERRED WORK ──────────────────────────
+
+Things NOT done (candidates for future rounds):
+  - 404 page i18n (currently EN only)
+  - More logo polish for FFG (no source project)
+  - Translate pillar chips ("Operator architecture", etc.) — skipped
+    because they're operational vocabulary, debatable to translate
+  - Audio-reactive option for hero particles
+  - Cinematic page transitions between sections (rail click)
+  - Interactive timeline component (current timeline is static)
+  - Theme variants (light mode, etc.)
+
+═══════════════════════════════════════════════════
+END OF CONTEXT — paste this file at the start of new conversations
+to restore working context without re-deriving from scratch.

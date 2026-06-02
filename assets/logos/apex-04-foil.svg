@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- APEX FOIL — two-toned V. Left blade is filled white. Right blade
+       is OUTLINE only, drawn in brand blue. The fill/outline contrast
+       creates instant hierarchy: solid foundation + leading-edge marker.
+       Elegant because of restraint — no overlay, no escape past frame. -->
+
+  <!-- Filled white left blade -->
+  <path d="M 16 14 L 26 14 L 50 86 L 46 86 Z" fill="#ffffff"/>
+
+  <!-- Outline-only right blade in brand blue (stroke, not fill) -->
+  <path
+    d="M 84 14 L 74 14 L 50 86 L 54 86 Z"
+    fill="none"
+    stroke="#2563EB"
+    stroke-width="1.8"
+    stroke-linejoin="miter"
+  />
+</svg>

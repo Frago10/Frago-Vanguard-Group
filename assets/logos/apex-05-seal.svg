@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- APEX SEAL — the V inscribed within a thin circle, like a museum
+       seal or sovereign coin. The blue accent is a single arc segment
+       at the upper-right of the circle, suggesting the leading position
+       on a horizon. Quiet, archival, transcendent. -->
+
+  <!-- Outer circle (thin hairline) -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#ffffff" stroke-width="1"/>
+
+  <!-- Brand-blue arc segment at the upper-right (vanguard marker on the rim) -->
+  <path
+    d="M 50 8 A 42 42 0 0 1 92 50"
+    fill="none"
+    stroke="#2563EB"
+    stroke-width="2.5"
+    stroke-linecap="round"
+  />
+
+  <!-- V mark inside, centered -->
+  <path
+    d="M 28 32 L 50 76 L 72 32"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="4"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+</svg>

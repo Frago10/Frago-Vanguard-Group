@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A0A0A"/>
+      <stop offset="1" stop-color="#0F1428"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.2" r="0.8">
+      <stop offset="0" stop-color="#2563EB" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Logo — SEAL -->
+  <g transform="translate(96 96) scale(1.6)">
+    <circle cx="40" cy="40" r="33" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+    <path d="M 40 7 A 33 33 0 0 1 73 40" fill="none" stroke="#2563EB" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M 22 26 L 40 62 L 58 26" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="96" y="380" fill="#ffffff" font-family="'General Sans', 'Satoshi', sans-serif" font-weight="600" font-size="92" letter-spacing="-3">
+    Built to grow together.
+  </text>
+  <text x="96" y="440" fill="#8A8A90" font-family="'JetBrains Mono', monospace" font-size="22" letter-spacing="6">
+    FRAGO VANGUARD GROUP · A GLOBAL INNOVATION ECOSYSTEM
+  </text>
+
+  <!-- Bottom rule -->
+  <line x1="96" y1="540" x2="1104" y2="540" stroke="#ffffff" stroke-opacity="0.08"/>
+  <text x="96" y="580" fill="#C7C7CC" font-family="'JetBrains Mono', monospace" font-size="20" letter-spacing="5">
+    IMPACTO · ESCALABILIDAD · EVOLUCIÓN CONSTANTE
+  </text>
+</svg>

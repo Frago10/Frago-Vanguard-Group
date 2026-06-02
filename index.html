@@ -1,0 +1,1321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="description" content="Frago Vanguard Group — A global innovation ecosystem built to grow together. Impacto, escalabilidad y evolución constante." />
+    <meta property="og:title" content="Frago Vanguard Group — Built to grow together." />
+    <meta property="og:description" content="A global innovation ecosystem engineered for impact, scale and constant evolution." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/og.svg" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="assets/favicon.svg" />
+    <title>Frago Vanguard Group — Built to grow together.</title>
+
+    <!-- Preconnect to all external origins (fonts + ESM CDN) -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://esm.sh" crossorigin />
+    <link rel="dns-prefetch" href="https://esm.sh" />
+
+    <!-- Typography: Satoshi + General Sans (Fontshare) + Inter (Google) — non-blocking -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&f[]=general-sans@400,500,600,700&display=swap"
+      onload="this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&f[]=general-sans@400,500,600,700&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <!-- ─────────────  PRELOADER  ───────────── -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__inner">
+        <svg class="preloader__draw" viewBox="0 0 80 80" aria-hidden="true">
+          <!-- SEAL draw-in sequence: ring → blue arc → V -->
+          <circle cx="40" cy="40" r="33" />
+          <path d="M 40 7 A 33 33 0 0 1 73 40" />
+          <path d="M 22 26 L 40 62 L 58 26" />
+        </svg>
+        <div class="preloader__bar"><span></span></div>
+        <p class="preloader__label">FRAGO VANGUARD GROUP</p>
+      </div>
+    </div>
+
+    <!-- ─────────────  LOCALE SWITCHER (floating)  ───────────── -->
+    <div class="locale" data-locale aria-label="Language">
+      <button class="locale__btn" type="button" data-locale-set="en" aria-pressed="true">EN</button>
+      <span class="locale__sep">/</span>
+      <button class="locale__btn" type="button" data-locale-set="es" aria-pressed="false">ES</button>
+    </div>
+
+    <!-- ─────────────  CUSTOM CURSOR  ───────────── -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <span class="cursor__label" data-cursor-label>Explore</span>
+    </div>
+
+    <!-- ─────────────  EXPLORE MODAL — business units  ───────────── -->
+    <div class="explore" data-explore aria-hidden="true">
+      <div class="explore__backdrop" data-explore-close></div>
+      <div class="explore__ambient" aria-hidden="true"></div>
+
+      <div
+        class="explore__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="explore-title"
+      >
+        <button
+          class="explore__close"
+          type="button"
+          data-explore-close
+          aria-label="Close"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          </svg>
+        </button>
+
+        <header class="explore__head">
+          <p class="explore__kicker" data-i18n="exp.kicker">— THE FRAGO ECOSYSTEM</p>
+          <h2 class="explore__title" id="explore-title" data-i18n-html="exp.title">
+            Three platforms.<br />
+            <em>One thesis</em>.
+          </h2>
+          <p class="explore__sub" data-i18n="exp.sub">
+            Independent business units, compounding under a single
+            ecosystem. Hover to explore.
+          </p>
+        </header>
+
+        <div class="explore__grid">
+          <!-- NEXUS INTELLIGENCE — HEX CORE (neon green) -->
+          <a
+            class="explore__card"
+            href="#"
+            data-explore-card="nexus"
+            style="--brand-c: #A6FF00; --brand-c-soft: #c4ff4d; --brand-c-glow: rgba(166, 255, 0, 0.42);"
+          >
+            <div class="explore__card-logo">
+              <!-- Replicated from Fragos Nexus Intelligence / brand/LogoMark.tsx -->
+              <svg viewBox="0 0 100 100" aria-hidden="true" fill="none">
+                <!-- Outer hex -->
+                <polygon
+                  points="50,8 87,30 87,70 50,92 13,70 13,30"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  fill="none"
+                />
+                <!-- Inner hex -->
+                <polygon
+                  points="50,26 72,38 72,62 50,74 28,62 28,38"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  fill="none"
+                  opacity="0.5"
+                />
+                <!-- Internal facets — depth -->
+                <g stroke="currentColor" stroke-width="0.7" opacity="0.45">
+                  <line x1="50" y1="8"  x2="50" y2="26"/>
+                  <line x1="87" y1="30" x2="72" y2="38"/>
+                  <line x1="87" y1="70" x2="72" y2="62"/>
+                  <line x1="50" y1="92" x2="50" y2="74"/>
+                  <line x1="13" y1="70" x2="28" y2="62"/>
+                  <line x1="13" y1="30" x2="28" y2="38"/>
+                </g>
+                <!-- Neon slash -->
+                <line x1="20" y1="80" x2="80" y2="20" stroke="#A6FF00" stroke-width="1.8"/>
+                <!-- Pulsing core -->
+                <circle cx="50" cy="50" r="6" fill="#A6FF00"/>
+                <circle cx="50" cy="50" r="2" fill="#eaffb3"/>
+              </svg>
+            </div>
+            <div class="explore__card-meta">
+              <p class="explore__card-eyebrow" data-i18n="exp.nexus.eyebrow">01 · INTELLIGENCE</p>
+              <h3 class="explore__card-name" data-i18n-html="exp.nexus.name">
+                Frago <strong>Nexus Intelligence</strong>
+              </h3>
+              <p class="explore__card-desc" data-i18n="exp.nexus.desc">
+                AI strategy, applied research and intelligence systems for
+                operators who need to think faster than their category.
+              </p>
+              <span class="explore__card-cta">
+                <span data-i18n="exp.nexus.cta">Visit Nexus</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"/></svg>
+              </span>
+            </div>
+            <span class="explore__card-corner"></span>
+          </a>
+
+          <!-- MOMENTUM MEDIA — Sharp Chevron (magenta) -->
+          <a
+            class="explore__card"
+            href="#"
+            data-explore-card="momentum"
+            style="--brand-c: #ff2d8d; --brand-c-soft: #ff7ab8; --brand-c-glow: rgba(255, 45, 141, 0.45);"
+          >
+            <div class="explore__card-logo">
+              <!-- Replicated from Fragos Momentum Media / brand/LogoMark.tsx -->
+              <svg viewBox="0 0 120 120" aria-hidden="true" fill="none">
+                <!-- Outer chevron — white / currentColor -->
+                <path
+                  d="M 60 12 L 108 90 L 92 90 L 60 38 L 28 90 L 12 90 Z"
+                  fill="currentColor"
+                />
+                <!-- Inner chevron — brand magenta -->
+                <path
+                  d="M 60 46 L 86 90 L 74 90 L 60 66 L 46 90 L 34 90 Z"
+                  fill="#ff2d8d"
+                />
+                <!-- Base line — brand magenta -->
+                <rect x="12" y="98" width="96" height="3" rx="1.5" fill="#ff2d8d"/>
+              </svg>
+            </div>
+            <div class="explore__card-meta">
+              <p class="explore__card-eyebrow" data-i18n="exp.momentum.eyebrow">02 · CREATIVE</p>
+              <h3 class="explore__card-name" data-i18n-html="exp.momentum.name">
+                Frago <strong>Momentum Digital</strong>
+              </h3>
+              <p class="explore__card-desc" data-i18n="exp.momentum.desc">
+                Creative agency for brands that compound through culture.
+                Films, sites, identity, motion — engineered for distribution.
+              </p>
+              <span class="explore__card-cta">
+                <span data-i18n="exp.momentum.cta">Visit Momentum</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"/></svg>
+              </span>
+            </div>
+            <span class="explore__card-corner"></span>
+          </a>
+
+          <!-- FRAGO FOOTBALL GROUP — Shield mark (gold) -->
+          <a
+            class="explore__card"
+            href="#"
+            data-explore-card="ffg"
+            style="--brand-c: #d4af37; --brand-c-soft: #f0c862; --brand-c-glow: rgba(212, 175, 55, 0.45);"
+          >
+            <div class="explore__card-logo">
+              <!-- Heraldic shield + inner chevron + crown star -->
+              <svg viewBox="0 0 100 100" aria-hidden="true" fill="none">
+                <!-- Outer shield silhouette -->
+                <path
+                  d="M 50 8 L 84 22 L 84 56 Q 84 78 50 92 Q 16 78 16 56 L 16 22 Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+                <!-- Inner chevron — gold -->
+                <path
+                  d="M 30 38 L 50 70 L 70 38"
+                  stroke="#d4af37"
+                  stroke-width="3.5"
+                  stroke-linecap="square"
+                  stroke-linejoin="miter"
+                  fill="none"
+                />
+                <!-- Crown star (championship marker) -->
+                <path
+                  d="M 50 18 L 52.5 24 L 58.5 24 L 53.7 27.5 L 55.5 33 L 50 29.7 L 44.5 33 L 46.3 27.5 L 41.5 24 L 47.5 24 Z"
+                  fill="#d4af37"
+                />
+                <!-- Heritage rule -->
+                <line x1="26" y1="80" x2="74" y2="80" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="explore__card-meta">
+              <p class="explore__card-eyebrow" data-i18n="exp.ffg.eyebrow">03 · SPORTS</p>
+              <h3 class="explore__card-name" data-i18n-html="exp.ffg.name">
+                Frago <strong>Football Group</strong>
+              </h3>
+              <p class="explore__card-desc" data-i18n="exp.ffg.desc">
+                Football as institutional category. Player development,
+                clubs, intellectual property, data — the long-horizon sports
+                platform.
+              </p>
+              <span class="explore__card-cta">
+                <span data-i18n="exp.ffg.cta">Visit FFG</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"/></svg>
+              </span>
+            </div>
+            <span class="explore__card-corner"></span>
+          </a>
+        </div>
+
+        <footer class="explore__foot">
+          <span class="explore__foot-rule"></span>
+          <span class="explore__foot-meta">
+            <span>FRAGO VANGUARD GROUP</span>
+            <span class="explore__foot-dot"></span>
+            <span data-i18n="exp.foot">Built to grow together.</span>
+          </span>
+          <span class="explore__foot-rule"></span>
+        </footer>
+      </div>
+    </div>
+
+    <!-- ─────────────  SECTION PROGRESS RAIL  ───────────── -->
+    <aside class="rail" id="rail" aria-label="Section progress">
+      <ul class="rail__list">
+        <li class="rail__item">
+          <a class="rail__link" href="#top" data-rail-link data-section="top">
+            <span class="rail__node"></span>
+            <span class="rail__caption">
+              <span class="rail__caption-num">00</span>
+              <span class="rail__caption-text">Index</span>
+            </span>
+          </a>
+        </li>
+        <li class="rail__item">
+          <a class="rail__link" href="#vision" data-rail-link data-section="vision">
+            <span class="rail__node"></span>
+            <span class="rail__caption">
+              <span class="rail__caption-num">01</span>
+              <span class="rail__caption-text">Vision</span>
+            </span>
+          </a>
+        </li>
+        <li class="rail__item">
+          <a class="rail__link" href="#ecosystem" data-rail-link data-section="ecosystem">
+            <span class="rail__node"></span>
+            <span class="rail__caption">
+              <span class="rail__caption-num">02</span>
+              <span class="rail__caption-text">Ecosystem</span>
+            </span>
+          </a>
+        </li>
+        <li class="rail__item">
+          <a class="rail__link" href="#approach" data-rail-link data-section="approach">
+            <span class="rail__node"></span>
+            <span class="rail__caption">
+              <span class="rail__caption-num">03</span>
+              <span class="rail__caption-text">Approach</span>
+            </span>
+          </a>
+        </li>
+        <li class="rail__item">
+          <a class="rail__link" href="#capabilities" data-rail-link data-section="capabilities">
+            <span class="rail__node"></span>
+            <span class="rail__caption">
+              <span class="rail__caption-num">04</span>
+              <span class="rail__caption-text">Capabilities</span>
+            </span>
+          </a>
+        </li>
+        <li class="rail__item">
+          <a class="rail__link" href="#insights" data-rail-link data-section="insights">
+            <span class="rail__node"></span>
+            <span class="rail__caption">
+              <span class="rail__caption-num">05</span>
+              <span class="rail__caption-text">Insights</span>
+            </span>
+          </a>
+        </li>
+        <li class="rail__item">
+          <a class="rail__link" href="#contact" data-rail-link data-section="contact">
+            <span class="rail__node"></span>
+            <span class="rail__caption">
+              <span class="rail__caption-num">06</span>
+              <span class="rail__caption-text">Partner</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- ─────────────  REUSABLE SVG SPRITE  ───────────── -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="v-mark" viewBox="0 0 80 80">
+          <!-- SEAL — institutional V inscribed within a hairline horizon ring.
+               currentColor drives the white elements (circle + V) so consumers
+               can recolor via CSS. The brand-blue arc is hardcoded as it is
+               the brand signature. -->
+
+          <!-- Hairline outer ring (the horizon) -->
+          <circle
+            cx="40" cy="40" r="33"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+          />
+          <!-- Brand-blue arc segment at the upper-right rim:
+               the leading position on the horizon. -->
+          <path
+            d="M 40 7 A 33 33 0 0 1 73 40"
+            fill="none"
+            stroke="#2563EB"
+            stroke-width="2.8"
+            stroke-linecap="round"
+          />
+          <!-- The V mark inscribed inside the ring -->
+          <path
+            d="M 22 26 L 40 62 L 58 26"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="4"
+            stroke-linecap="square"
+            stroke-linejoin="miter"
+          />
+        </symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-plus" viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+        </symbol>
+        <symbol id="icon-spark" viewBox="0 0 24 24">
+          <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+        </symbol>
+        <symbol id="icon-shield" viewBox="0 0 24 24">
+          <path d="M12 3l8 3v6c0 4.5-3.4 8.4-8 9-4.6-.6-8-4.5-8-9V6l8-3z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-orbit" viewBox="0 0 24 24">
+          <ellipse cx="12" cy="12" rx="9" ry="4" fill="none" stroke="currentColor" stroke-width="1.3" />
+          <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+        </symbol>
+        <symbol id="icon-trend" viewBox="0 0 24 24">
+          <path d="M3 17l6-6 4 4 8-9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M14 6h7v7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <!-- ─────────────  AMBIENT BACKDROP  ───────────── -->
+    <div class="ambient" aria-hidden="true">
+      <canvas id="particles"></canvas>
+      <div class="ambient__grid"></div>
+      <div class="ambient__glow ambient__glow--a"></div>
+      <div class="ambient__glow ambient__glow--b"></div>
+      <div class="ambient__noise"></div>
+    </div>
+
+    <!-- ─────────────  NAVIGATION  ───────────── -->
+    <header class="nav" id="nav">
+      <div class="nav__inner">
+        <a class="nav__brand" href="#top" aria-label="Frago Vanguard Group home">
+          <svg class="nav__mark" viewBox="0 0 80 80" aria-hidden="true"><use href="#v-mark" /></svg>
+          <span class="nav__wordmark">
+            <span class="nav__wordmark-top">FRAGO</span>
+            <span class="nav__wordmark-main">VANGUARD</span>
+          </span>
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#vision" data-link data-i18n="nav.vision">Vision</a>
+          <a href="#ecosystem" data-link data-i18n="nav.ecosystem">Ecosystem</a>
+          <a href="#approach" data-link data-i18n="nav.approach">Approach</a>
+          <a href="#capabilities" data-link data-i18n="nav.capabilities">Capabilities</a>
+          <a href="#insights" data-link data-i18n="nav.insights">Insights</a>
+        </nav>
+
+        <div class="nav__actions">
+          <button class="btn btn--ghost" type="button" data-explore-trigger>
+            <span class="btn__label" data-i18n="nav.explore">Explora nuestros servicios</span>
+          </button>
+          <a class="btn btn--primary" href="#contact" data-magnetic>
+            <span>
+              <span class="btn__label" data-i18n="nav.partner">Partner with us</span>
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow" /></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ─────────────  HERO  ───────────── -->
+      <section class="hero" id="hero">
+        <div class="hero__chrome">
+          <span class="hero__chrome-line"></span>
+          <span class="hero__chrome-label">FVG · 001</span>
+          <span class="hero__chrome-coord">9.9281° N · 84.0907° W · CR</span>
+          <span class="hero__chrome-line"></span>
+        </div>
+
+        <div class="hero__stage">
+          <!-- 3D-feeling layered V mark -->
+          <div class="hero__mark" data-tilt>
+            <div class="hero__mark-glow"></div>
+            <div class="hero__mark-ring"></div>
+            <div class="hero__mark-ring hero__mark-ring--two"></div>
+            <svg class="hero__mark-svg" viewBox="0 0 80 80" aria-hidden="true">
+              <use href="#v-mark" />
+            </svg>
+            <div class="hero__mark-shadow"></div>
+          </div>
+
+          <p class="hero__eyebrow">
+            <span class="hero__dot"></span>
+            <span data-scramble data-i18n="hero.eyebrow">A GLOBAL INNOVATION ECOSYSTEM</span>
+          </p>
+
+          <h1 class="hero__title" data-split-text data-i18n-html="hero.title">
+            <span class="hero__line">Built</span>
+            <span class="hero__line"><em>to grow</em></span>
+            <span class="hero__line">together.</span>
+          </h1>
+
+          <p class="hero__sub" data-reveal data-i18n="hero.sub">
+            Frago Vanguard Group engineers ventures, platforms and
+            partnerships that compound across markets — turning capital,
+            talent and conviction into long‑horizon outcomes.
+          </p>
+
+          <div class="hero__cta" data-reveal>
+            <a class="btn btn--primary btn--lg" href="#vision" data-magnetic>
+              <span>
+                <span class="btn__label" data-i18n="hero.cta1">Explore the ecosystem</span>
+                <svg class="btn__icon" viewBox="0 0 24 24"><use href="#icon-arrow" /></svg>
+              </span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#contact" data-magnetic>
+              <span>
+                <span class="btn__label" data-i18n="hero.cta2">Talk to us</span>
+              </span>
+            </a>
+          </div>
+
+          <ul class="hero__pillars" data-reveal>
+            <li><span class="hero__pillars-num">01</span> Impacto</li>
+            <li><span class="hero__pillars-num">02</span> Escalabilidad</li>
+            <li><span class="hero__pillars-num">03</span> Evolución constante</li>
+          </ul>
+        </div>
+
+        <a class="hero__scroll" href="#vision" aria-label="Scroll to next section">
+          <span class="hero__scroll-track"><span class="hero__scroll-dot"></span></span>
+          <span class="hero__scroll-label" data-i18n="hero.scroll">SCROLL</span>
+        </a>
+      </section>
+
+      <!-- ─────────────  MARQUEE  ───────────── -->
+      <section class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Innovación</span><span>·</span>
+          <span>Confianza</span><span>·</span>
+          <span>Propósito</span><span>·</span>
+          <span>Crecimiento</span><span>·</span>
+          <span>Impacto</span><span>·</span>
+          <span>Escalabilidad</span><span>·</span>
+          <span>Evolución constante</span><span>·</span>
+          <span>Innovación</span><span>·</span>
+          <span>Confianza</span><span>·</span>
+          <span>Propósito</span><span>·</span>
+          <span>Crecimiento</span><span>·</span>
+          <span>Impacto</span><span>·</span>
+          <span>Escalabilidad</span><span>·</span>
+          <span>Evolución constante</span><span>·</span>
+        </div>
+      </section>
+
+      <!-- ─────────────  VISION / MANIFESTO  ───────────── -->
+      <section class="vision section" id="vision">
+        <div class="section__head">
+          <p class="kicker" data-scramble><span class="kicker__index">01 /</span> <span data-i18n="vision.kicker">Vision</span></p>
+          <h2 class="section__title" data-i18n-html="vision.title">
+            A platform built on
+            <span class="grad-text">conviction</span>,
+            not on hype cycles.
+          </h2>
+        </div>
+
+        <div class="vision__grid">
+          <div class="vision__lead">
+            <p data-reveal data-i18n="vision.lead1">
+              We exist for the long horizon. Frago Vanguard Group is the
+              ecosystem behind operators, founders and institutions that
+              refuse to choose between ambition and discipline.
+            </p>
+            <p data-reveal data-i18n="vision.lead2">
+              Every venture we touch is engineered to compound — culturally,
+              financially and structurally — so the work outlasts the cycle
+              that produced it.
+            </p>
+            <div class="vision__sign" data-reveal>
+              <svg viewBox="0 0 80 80" class="vision__sign-mark"><use href="#v-mark" /></svg>
+              <div>
+                <p class="vision__sign-name">Frago Vanguard Group</p>
+                <p class="vision__sign-role" data-i18n="vision.sign">Manifesto · 2025</p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="pillars">
+            <li class="pillar" data-pillar tabindex="0">
+              <div class="pillar__icon"><svg viewBox="0 0 24 24"><use href="#icon-spark" /></svg></div>
+              <h3>Innovación</h3>
+              <p class="pillar__lead" data-i18n="vision.pillar1.body">
+                We engineer leverage where conventional capital cannot reach —
+                pairing operators with platforms that change the unit economics
+                of an entire category.
+              </p>
+              <div class="pillar__more">
+                <ul class="pillar__chips">
+                  <li>Operator architecture</li>
+                  <li>Platform thesis</li>
+                  <li>Cross-portfolio leverage</li>
+                </ul>
+                <a class="pillar__cta" href="#contact">
+                  <span data-i18n="vision.pillar1.cta">Read the thesis</span>
+                  <svg viewBox="0 0 24 24"><use href="#icon-arrow"/></svg>
+                </a>
+              </div>
+              <span class="pillar__num">01</span>
+            </li>
+            <li class="pillar" data-pillar tabindex="0">
+              <div class="pillar__icon"><svg viewBox="0 0 24 24"><use href="#icon-shield" /></svg></div>
+              <h3>Confianza</h3>
+              <p class="pillar__lead" data-i18n="vision.pillar2.body">
+                Trust is a structural decision. Governance, transparency and
+                relentless craft are encoded into how every Vanguard venture
+                is built and reviewed.
+              </p>
+              <div class="pillar__more">
+                <ul class="pillar__chips">
+                  <li>Board architecture</li>
+                  <li>Quarterly review cadence</li>
+                  <li>Open reporting standards</li>
+                </ul>
+                <a class="pillar__cta" href="#contact">
+                  <span data-i18n="vision.pillar2.cta">How we govern</span>
+                  <svg viewBox="0 0 24 24"><use href="#icon-arrow"/></svg>
+                </a>
+              </div>
+              <span class="pillar__num">02</span>
+            </li>
+            <li class="pillar" data-pillar tabindex="0">
+              <div class="pillar__icon"><svg viewBox="0 0 24 24"><use href="#icon-orbit" /></svg></div>
+              <h3>Propósito</h3>
+              <p class="pillar__lead" data-i18n="vision.pillar3.body">
+                We deploy conviction into the categories that compound: real
+                economy, frontier technology and human capital. Purpose is the
+                portfolio thesis.
+              </p>
+              <div class="pillar__more">
+                <ul class="pillar__chips">
+                  <li>Real economy</li>
+                  <li>Frontier technology</li>
+                  <li>Human capital</li>
+                </ul>
+                <a class="pillar__cta" href="#ecosystem">
+                  <span data-i18n="vision.pillar3.cta">See the categories</span>
+                  <svg viewBox="0 0 24 24"><use href="#icon-arrow"/></svg>
+                </a>
+              </div>
+              <span class="pillar__num">03</span>
+            </li>
+            <li class="pillar" data-pillar tabindex="0">
+              <div class="pillar__icon"><svg viewBox="0 0 24 24"><use href="#icon-trend" /></svg></div>
+              <h3>Crecimiento</h3>
+              <p class="pillar__lead" data-i18n="vision.pillar4.body">
+                Growth is the byproduct of compounding — not the goal. Our
+                operators scale by removing friction, not by adding noise.
+              </p>
+              <div class="pillar__more">
+                <ul class="pillar__chips">
+                  <li>Unit economics first</li>
+                  <li>Operator residencies</li>
+                  <li>Compounding cycles</li>
+                </ul>
+                <a class="pillar__cta" href="#capabilities">
+                  <span data-i18n="vision.pillar4.cta">See the numbers</span>
+                  <svg viewBox="0 0 24 24"><use href="#icon-arrow"/></svg>
+                </a>
+              </div>
+              <span class="pillar__num">04</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ─────────────  ECOSYSTEM (BENTO)  ───────────── -->
+      <section class="ecosystem section" id="ecosystem">
+        <div class="section__head">
+          <p class="kicker" data-scramble><span class="kicker__index">02 /</span> <span data-i18n="eco.kicker">Ecosystem</span></p>
+          <h2 class="section__title" data-i18n-html="eco.title">
+            One thesis. <span class="grad-text">Four platforms.</span><br />
+            Compounding across markets.
+          </h2>
+          <p class="section__sub" data-i18n="eco.sub">
+            Each platform is operator‑led, capital‑aligned and built to
+            interlock with the others — so capability, distribution and
+            insight flow across the group.
+          </p>
+        </div>
+
+        <div class="bento">
+          <article class="bento__card bento__card--feature" data-bento>
+            <div class="bento__head">
+              <span class="bento__index">/01</span>
+              <span class="bento__tag" data-i18n="eco.capital.tag">Capital</span>
+            </div>
+            <h3>Vanguard Capital</h3>
+            <p data-i18n="eco.capital.desc">
+              Long‑horizon equity for category‑defining founders. Concentrated
+              positions, structural support, multi‑decade conviction.
+            </p>
+            <div class="bento__metric">
+              <div>
+                <span class="bento__metric-num" data-count="12">0</span>
+                <span class="bento__metric-suffix">+</span>
+                <span class="bento__metric-label" data-i18n="eco.capital.metric1">Active positions</span>
+              </div>
+              <div>
+                <span class="bento__metric-num" data-count="9">0</span>
+                <span class="bento__metric-suffix">yr</span>
+                <span class="bento__metric-label" data-i18n="eco.capital.metric2">Median hold</span>
+              </div>
+            </div>
+            <div class="bento__visual bento__visual--orbit">
+              <span class="orbit"></span>
+              <span class="orbit orbit--mid"></span>
+              <span class="orbit orbit--inner"></span>
+              <span class="orbit__core"></span>
+            </div>
+          </article>
+
+          <article class="bento__card" data-bento>
+            <div class="bento__head">
+              <span class="bento__index">/02</span>
+              <span class="bento__tag" data-i18n="eco.studios.tag">Ventures</span>
+            </div>
+            <h3>Vanguard Studios</h3>
+            <p data-i18n="eco.studios.desc">
+              An operator studio for products at the edge of AI, fintech and
+              real‑economy infrastructure.
+            </p>
+            <ul class="bento__list">
+              <li><span class="bento__dot"></span> <span data-i18n="eco.studios.item1">Operator residencies</span></li>
+              <li><span class="bento__dot"></span> <span data-i18n="eco.studios.item2">Product‑market discovery</span></li>
+              <li><span class="bento__dot"></span> <span data-i18n="eco.studios.item3">Capital deployment</span></li>
+            </ul>
+          </article>
+
+          <article class="bento__card" data-bento>
+            <div class="bento__head">
+              <span class="bento__index">/03</span>
+              <span class="bento__tag" data-i18n="eco.council.tag">Advisory</span>
+            </div>
+            <h3>Vanguard Council</h3>
+            <p data-i18n="eco.council.desc">
+              Senior counsel to founders, family offices and institutions —
+              strategy, governance and capital architecture.
+            </p>
+            <div class="bento__chips">
+              <span data-i18n="eco.council.chip1">Strategy</span>
+              <span data-i18n="eco.council.chip2">Governance</span>
+              <span>M&amp;A</span>
+              <span data-i18n="eco.council.chip4">Org design</span>
+            </div>
+          </article>
+
+          <article class="bento__card bento__card--wide" data-bento>
+            <div class="bento__head">
+              <span class="bento__index">/04</span>
+              <span class="bento__tag" data-i18n="eco.futures.tag">Foundation</span>
+            </div>
+            <h3>Vanguard Futures</h3>
+            <p data-i18n="eco.futures.desc">
+              The non‑profit arm of the group — investing in the talent,
+              research and infrastructure of the next economic generation.
+            </p>
+            <div class="bento__rows">
+              <div class="bento__row">
+                <span class="bento__row-key" data-i18n="eco.futures.row1k">Programs</span>
+                <span class="bento__row-val" data-i18n="eco.futures.row1v">Fellows · Research · Open knowledge</span>
+              </div>
+              <div class="bento__row">
+                <span class="bento__row-key" data-i18n="eco.futures.row2k">Reach</span>
+                <span class="bento__row-val" data-i18n="eco.futures.row2v">14 countries · 4 continents</span>
+              </div>
+              <div class="bento__row">
+                <span class="bento__row-key" data-i18n="eco.futures.row3k">Mandate</span>
+                <span class="bento__row-val" data-i18n="eco.futures.row3v">Compound the next generation</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ─────────────  APPROACH / METHODOLOGY  ───────────── -->
+      <section class="approach section" id="approach">
+        <div class="section__head">
+          <p class="kicker" data-scramble><span class="kicker__index">03 /</span> <span data-i18n="appr.kicker">Approach</span></p>
+          <h2 class="section__title" data-i18n-html="appr.title">
+            We engineer ventures the way
+            <span class="grad-text">institutions engineer balance sheets</span>.
+          </h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step" data-step>
+            <span class="step__index">01</span>
+            <div class="step__body">
+              <h3 data-i18n="appr.step1.h">Thesis</h3>
+              <p data-i18n="appr.step1.p">
+                Every engagement begins with a written, falsifiable thesis —
+                shared with founders, partners and the board before a single
+                resource moves.
+              </p>
+            </div>
+            <span class="step__rule"></span>
+          </li>
+          <li class="step" data-step>
+            <span class="step__index">02</span>
+            <div class="step__body">
+              <h3 data-i18n="appr.step2.h">Architecture</h3>
+              <p data-i18n="appr.step2.p">
+                We design the operating system first: governance, capital
+                structure, hiring loops and cadence — the architecture of how
+                the venture will compound.
+              </p>
+            </div>
+            <span class="step__rule"></span>
+          </li>
+          <li class="step" data-step>
+            <span class="step__index">03</span>
+            <div class="step__body">
+              <h3 data-i18n="appr.step3.h">Execution</h3>
+              <p data-i18n="appr.step3.p">
+                Embedded operators ship product, capital and partnerships
+                alongside the founder team. Weekly cadence, monthly board,
+                quarterly review.
+              </p>
+            </div>
+            <span class="step__rule"></span>
+          </li>
+          <li class="step" data-step>
+            <span class="step__index">04</span>
+            <div class="step__body">
+              <h3 data-i18n="appr.step4.h">Compounding</h3>
+              <p data-i18n="appr.step4.p">
+                Once the loops are stable we hand the keys back, retain
+                conviction, and let the venture compound across cycles inside
+                the broader Vanguard ecosystem.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ─────────────  CAPABILITIES / NUMBERS  ───────────── -->
+      <section class="capabilities section" id="capabilities">
+        <div class="section__head">
+          <p class="kicker" data-scramble><span class="kicker__index">04 /</span> <span data-i18n="cap.kicker">Capabilities</span></p>
+          <h2 class="section__title" data-i18n-html="cap.title">
+            The numbers behind a <span class="grad-text">long‑horizon</span> ecosystem.
+          </h2>
+        </div>
+
+        <div class="stats">
+          <article class="stat" data-stat>
+            <p class="stat__num"><span data-count="240">0</span><span class="stat__suffix">M+</span></p>
+            <p class="stat__label" data-i18n="cap.stat1.label">Capital under thesis</p>
+            <p class="stat__note" data-i18n="cap.stat1.note">Across ventures, follow‑ons and strategic mandates.</p>
+          </article>
+          <article class="stat" data-stat>
+            <p class="stat__num"><span data-count="38">0</span></p>
+            <p class="stat__label" data-i18n="cap.stat2.label">Active operators</p>
+            <p class="stat__note" data-i18n="cap.stat2.note">Embedded across portfolio companies and council mandates.</p>
+          </article>
+          <article class="stat" data-stat>
+            <p class="stat__num"><span data-count="14">0</span></p>
+            <p class="stat__label" data-i18n="cap.stat3.label">Countries</p>
+            <p class="stat__note" data-i18n="cap.stat3.note">From LatAm to MENA, operating in‑market with local teams.</p>
+          </article>
+          <article class="stat" data-stat>
+            <p class="stat__num"><span data-count="97">0</span><span class="stat__suffix">%</span></p>
+            <p class="stat__label" data-i18n="cap.stat4.label">Operator retention</p>
+            <p class="stat__note" data-i18n="cap.stat4.note">5‑year retention across the senior operator network.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ─────────────  MILESTONES TIMELINE  ───────────── -->
+      <section class="timeline section" aria-label="Track record">
+        <div class="section__head">
+          <p class="kicker" data-scramble><span class="kicker__index">·</span> <span data-i18n="tl.kicker">Track record</span></p>
+          <h2 class="section__title" data-i18n-html="tl.title">
+            A short <span class="grad-text">institutional history</span>.
+          </h2>
+        </div>
+
+        <ol class="timeline__rail">
+          <li class="timeline__item">
+            <span class="timeline__year">2024</span>
+            <span class="timeline__dot"></span>
+            <div class="timeline__body">
+              <h3 data-i18n="tl.m1.h">Vanguard Capital opens.</h3>
+              <p data-i18n="tl.m1.p">First conviction positions placed. The thesis is committed to paper before any capital moves.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2025</span>
+            <span class="timeline__dot"></span>
+            <div class="timeline__body">
+              <h3 data-i18n="tl.m2.h">Operator network reaches 38.</h3>
+              <p data-i18n="tl.m2.p">Senior operators embedded across portfolio companies. Cadence and review architecture deployed.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__year">2025</span>
+            <span class="timeline__dot"></span>
+            <div class="timeline__body">
+              <h3 data-i18n="tl.m3.h">Vanguard Studios &amp; Council launched.</h3>
+              <p data-i18n="tl.m3.p">Operator studio and senior counsel platforms now anchor the broader ecosystem.</p>
+            </div>
+          </li>
+          <li class="timeline__item is-current">
+            <span class="timeline__year">2026</span>
+            <span class="timeline__dot"></span>
+            <div class="timeline__body">
+              <h3 data-i18n="tl.m4.h">Vanguard Futures founded.</h3>
+              <p data-i18n="tl.m4.p">Non‑profit arm seeded across 14 countries to compound the next generation of operators.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ─────────────  PINNED MANIFESTO  ───────────── -->
+      <section class="pinned" id="manifesto" aria-label="Brand manifesto">
+        <div class="pinned__sticky">
+          <div class="pinned__chrome">
+            <span class="pinned__chrome-label">
+              <span class="pinned__chrome-dot"></span>
+              <span data-scramble data-i18n="man.chrome">MANIFESTO · IN MOTION</span>
+            </span>
+            <div class="pinned__progress" aria-hidden="true">
+              <span class="pinned__progress-num" data-pinned-current>01</span>
+              <span class="pinned__progress-track">
+                <span class="pinned__progress-fill"></span>
+              </span>
+              <span class="pinned__progress-num">04</span>
+            </div>
+          </div>
+
+          <div class="pinned__inner">
+            <div class="pinned__copy">
+              <article class="pinned__stage is-active" data-pinned-stage="0">
+                <p class="pinned__stage-eyebrow">— INNOVACIÓN</p>
+                <h3 class="pinned__stage-title" data-i18n-html="man.stage1.h">
+                  We engineer leverage <em>where capital alone</em> cannot reach.
+                </h3>
+                <p class="pinned__stage-body" data-i18n="man.stage1.p">
+                  Frago Vanguard is built for the gap between vision and balance
+                  sheet — combining operators, capital and platform thinking to
+                  produce outcomes a single asset class never could.
+                </p>
+              </article>
+
+              <article class="pinned__stage" data-pinned-stage="1">
+                <p class="pinned__stage-eyebrow">— CONFIANZA</p>
+                <h3 class="pinned__stage-title" data-i18n-html="man.stage2.h">
+                  Governance and craft, <em>not personality</em>, hold the
+                  institution together.
+                </h3>
+                <p class="pinned__stage-body" data-i18n="man.stage2.p">
+                  Trust is the structural decision that lets the work compound
+                  past its founders. We design boards, cadence and review long
+                  before we design product.
+                </p>
+              </article>
+
+              <article class="pinned__stage" data-pinned-stage="2">
+                <p class="pinned__stage-eyebrow">— PROPÓSITO</p>
+                <h3 class="pinned__stage-title" data-i18n-html="man.stage3.h">
+                  Capital is deployed where <em>compounding is possible</em> —
+                  never where attention is loudest.
+                </h3>
+                <p class="pinned__stage-body" data-i18n="man.stage3.p">
+                  Real economy. Frontier technology. Human capital. Our thesis
+                  ignores the cycle and follows the categories that grow with or
+                  without it.
+                </p>
+              </article>
+
+              <article class="pinned__stage" data-pinned-stage="3">
+                <p class="pinned__stage-eyebrow">— CRECIMIENTO</p>
+                <h3 class="pinned__stage-title" data-i18n-html="man.stage4.h">
+                  Growth is the <em>proof</em>. Not the goal.
+                </h3>
+                <p class="pinned__stage-body" data-i18n="man.stage4.p">
+                  When the architecture is right and the operators are right, the
+                  numbers follow. Our job is to make sure the underlying engine
+                  is built to last the decade — not the quarter.
+                </p>
+              </article>
+            </div>
+
+            <div class="pinned__mark-stage" aria-hidden="true">
+              <div class="pinned__mark-orbit pinned__mark-orbit--a"></div>
+              <div class="pinned__mark-orbit pinned__mark-orbit--b"></div>
+              <div class="pinned__mark-glow"></div>
+              <div class="pinned__mark">
+                <svg viewBox="0 0 80 80"><use href="#v-mark" /></svg>
+              </div>
+              <div class="pinned__mark-floor"></div>
+              <ul class="pinned__mark-tags">
+                <li data-tag="0"><span>01</span>Innovación</li>
+                <li data-tag="1"><span>02</span>Confianza</li>
+                <li data-tag="2"><span>03</span>Propósito</li>
+                <li data-tag="3"><span>04</span>Crecimiento</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────  FEATURED INITIATIVE  ───────────── -->
+      <section class="feature section">
+        <div class="feature__card">
+          <div class="feature__meta">
+            <span class="feature__tag" data-i18n="feat.tag">Featured initiative</span>
+            <span class="feature__year">2025</span>
+          </div>
+          <h2 class="feature__title" data-i18n-html="feat.title">
+            <span class="grad-text">Vanguard&nbsp;Futures</span> — building the
+            operating system for the next generation of operators.
+          </h2>
+          <p class="feature__lead" data-i18n="feat.lead">
+            A multi‑year program pairing capital, mentorship and research to
+            seed the next thousand operators across LatAm, EMEA and the US.
+            Built in partnership with universities, family offices and
+            institutional allocators.
+          </p>
+          <div class="feature__actions">
+            <a class="btn btn--primary" href="#contact" data-magnetic>
+              <span>
+                <span class="btn__label" data-i18n="feat.cta1">Read the brief</span>
+                <svg class="btn__icon" viewBox="0 0 24 24"><use href="#icon-arrow" /></svg>
+              </span>
+            </a>
+            <a class="btn btn--ghost" href="#contact" data-magnetic>
+              <span>
+                <span class="btn__label" data-i18n="feat.cta2">Partner with the program</span>
+              </span>
+            </a>
+          </div>
+
+          <div class="feature__chart" aria-hidden="true">
+            <svg viewBox="0 0 600 220" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="lineGrad" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#2563EB" stop-opacity="0.5" />
+                  <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M0,180 C80,160 130,150 180,130 C230,110 280,118 330,90 C380,62 430,55 480,40 C520,30 560,22 600,18"
+                fill="none"
+                stroke="#2563EB"
+                stroke-width="1.5"
+              />
+              <path
+                d="M0,180 C80,160 130,150 180,130 C230,110 280,118 330,90 C380,62 430,55 480,40 C520,30 560,22 600,18 L600,220 L0,220 Z"
+                fill="url(#lineGrad)"
+              />
+              <g fill="#2563EB">
+                <circle cx="180" cy="130" r="2.5" />
+                <circle cx="330" cy="90" r="2.5" />
+                <circle cx="480" cy="40" r="3" />
+              </g>
+              <g stroke="rgba(255,255,255,0.05)" stroke-dasharray="2 4">
+                <line x1="0" y1="55" x2="600" y2="55" />
+                <line x1="0" y1="110" x2="600" y2="110" />
+                <line x1="0" y1="165" x2="600" y2="165" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────  CINEMA — horizontal pinned arc  ───────────── -->
+      <section class="cinema" id="cinema" aria-label="The Vanguard arc">
+        <div class="cinema__sticky">
+          <div class="cinema__chrome">
+            <span class="cinema__chrome-rule"></span>
+            <span class="cinema__chrome-label" data-scramble data-i18n="cin.chrome">— THE VANGUARD ARC —</span>
+            <span class="cinema__counter">
+              <span data-cinema-cur>01</span><span class="cinema__counter-sep">/</span><span>03</span>
+            </span>
+          </div>
+
+          <div class="cinema__track" data-cinema-track>
+            <article class="cinema__panel" data-cinema-panel="0">
+              <div class="cinema__panel-bg cinema__panel-bg--grid" aria-hidden="true"></div>
+              <div class="cinema__panel-inner">
+                <span class="cinema__panel-num">01</span>
+                <p class="cinema__panel-tag" data-i18n="cin.p1.tag">Thesis · Memo · Commitment</p>
+                <h3 class="cinema__panel-title" data-i18n-html="cin.p1.title">
+                  We begin with <em>conviction</em>.
+                </h3>
+                <p class="cinema__panel-body" data-i18n="cin.p1.body">
+                  Every engagement starts with a written, falsifiable thesis.
+                  Capital follows the thesis — never the other way around.
+                  Before any resource moves, the conviction is on paper.
+                </p>
+              </div>
+            </article>
+
+            <article class="cinema__panel" data-cinema-panel="1">
+              <div class="cinema__panel-bg cinema__panel-bg--columns" aria-hidden="true"></div>
+              <div class="cinema__panel-inner">
+                <span class="cinema__panel-num">02</span>
+                <p class="cinema__panel-tag" data-i18n="cin.p2.tag">Governance · Structure · Cadence</p>
+                <h3 class="cinema__panel-title" data-i18n-html="cin.p2.title">
+                  We engineer the <em>architecture</em>.
+                </h3>
+                <p class="cinema__panel-body" data-i18n="cin.p2.body">
+                  Boards, capital stack, hiring loops, weekly cadence. The
+                  operating system is designed long before the venture meets
+                  its first customer.
+                </p>
+              </div>
+            </article>
+
+            <article class="cinema__panel" data-cinema-panel="2">
+              <div class="cinema__panel-bg cinema__panel-bg--horizon" aria-hidden="true"></div>
+              <div class="cinema__panel-inner">
+                <span class="cinema__panel-num">03</span>
+                <p class="cinema__panel-tag" data-i18n="cin.p3.tag">Patience · Conviction · Compounding</p>
+                <h3 class="cinema__panel-title" data-i18n-html="cin.p3.title">
+                  We compound over <em>decades</em>.
+                </h3>
+                <p class="cinema__panel-body" data-i18n="cin.p3.body">
+                  Once the architecture holds, we let time do the work.
+                  Patient capital, persistent operators, multi‑cycle
+                  conviction. The institution outlasts the team that built it.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="cinema__progress" aria-hidden="true">
+            <span class="cinema__progress-fill" data-cinema-fill></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────  PARTNERS MARQUEE  ───────────── -->
+      <section class="partners" aria-label="Co-investors and institutional partners">
+        <span class="partners__label" data-i18n="part.label">CO-INVESTORS · ALLOCATORS · OPERATORS</span>
+        <div class="partners__track" aria-hidden="true">
+          <span>Endeavor</span><span>Bain Capital</span><span>KKR</span><span>BlackRock</span>
+          <span>Goldman Sachs</span><span>TPG</span><span>Carlyle</span><span>Sequoia Heritage</span>
+          <span>Apollo</span><span>SoftBank Latin America</span><span>Endeavor</span><span>Bain Capital</span>
+          <span>KKR</span><span>BlackRock</span><span>Goldman Sachs</span><span>TPG</span>
+          <span>Carlyle</span><span>Sequoia Heritage</span><span>Apollo</span><span>SoftBank Latin America</span>
+        </div>
+      </section>
+
+      <!-- ─────────────  INSIGHTS  ───────────── -->
+      <section class="insights section" id="insights">
+        <div class="section__head">
+          <p class="kicker" data-scramble><span class="kicker__index">05 /</span> <span data-i18n="ins.kicker">Insights</span></p>
+          <h2 class="section__title" data-i18n-html="ins.title">
+            Field notes from the
+            <span class="grad-text">Vanguard desk</span>.
+          </h2>
+        </div>
+
+        <div class="cards">
+          <a class="card" href="#" data-card>
+            <div class="card__meta">
+              <span data-i18n="ins.c1.meta1">Capital</span><span>·</span><span data-i18n="ins.c1.meta2">Apr 2025</span>
+            </div>
+            <h3 data-i18n="ins.c1.h">Why the next decade rewards patient capital again.</h3>
+            <p data-i18n="ins.c1.p">
+              On the shift from liquidity‑driven returns to operator‑driven
+              compounding — and what it means for allocators today.
+            </p>
+            <div class="card__cta">
+              <span data-i18n="ins.c1.cta">Read essay</span>
+              <svg viewBox="0 0 24 24"><use href="#icon-arrow" /></svg>
+            </div>
+          </a>
+          <a class="card" href="#" data-card>
+            <div class="card__meta">
+              <span data-i18n="ins.c2.meta1">Operators</span><span>·</span><span data-i18n="ins.c2.meta2">Mar 2025</span>
+            </div>
+            <h3 data-i18n="ins.c2.h">The operator stack: how senior talent compounds.</h3>
+            <p data-i18n="ins.c2.p">
+              A framework for designing the operator network of a multi‑asset
+              ecosystem, from residency to council.
+            </p>
+            <div class="card__cta">
+              <span data-i18n="ins.c2.cta">Read essay</span>
+              <svg viewBox="0 0 24 24"><use href="#icon-arrow" /></svg>
+            </div>
+          </a>
+          <a class="card" href="#" data-card>
+            <div class="card__meta">
+              <span data-i18n="ins.c3.meta1">Governance</span><span>·</span><span data-i18n="ins.c3.meta2">Feb 2025</span>
+            </div>
+            <h3 data-i18n="ins.c3.h">Encoding trust before scale.</h3>
+            <p data-i18n="ins.c3.p">
+              Governance design as the unfair advantage of long‑horizon
+              ventures — the bench, the board, the cadence.
+            </p>
+            <div class="card__cta">
+              <span data-i18n="ins.c3.cta">Read essay</span>
+              <svg viewBox="0 0 24 24"><use href="#icon-arrow" /></svg>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ─────────────  OVERSIZED TYPOGRAPHY LOCKUP  ───────────── -->
+      <section class="lockup" aria-label="Brand promise">
+        <div class="lockup__chrome">
+          <span class="lockup__chrome-rule"></span>
+          <span class="lockup__chrome-label" data-scramble data-i18n="lk.chrome">— FRAGO VANGUARD · EST. SAN JOSÉ, CR · 2025 —</span>
+          <span class="lockup__chrome-rule"></span>
+        </div>
+
+        <h2 class="lockup__display" aria-label="Impacto. Escalabilidad. Evolución constante.">
+          <span class="lockup__line lockup__line--bold" data-lockup-line="0">
+            <span class="lockup__inner-text">IMPACTO</span>
+          </span>
+          <span class="lockup__line lockup__line--italic" data-lockup-line="1">
+            <span class="lockup__inner-text">escalabilidad</span>
+          </span>
+          <span class="lockup__line lockup__line--bold" data-lockup-line="2">
+            <span class="lockup__inner-text">EVOLUCIÓN</span>
+          </span>
+        </h2>
+
+        <div class="lockup__foot">
+          <span class="lockup__foot-rule"></span>
+          <span class="lockup__foot-meta">
+            <span data-i18n="lk.foot1">03 PROMISES</span>
+            <span class="lockup__foot-dot"></span>
+            <span data-i18n="lk.foot2">ONE THESIS</span>
+            <span class="lockup__foot-dot"></span>
+            <span data-i18n="lk.foot3">LONG HORIZON</span>
+          </span>
+          <span class="lockup__foot-rule"></span>
+        </div>
+      </section>
+
+      <!-- ─────────────  FINAL CTA  ───────────── -->
+      <section class="cta section" id="contact">
+        <div class="cta__chrome">
+          <span class="cta__chrome-line"></span>
+          <span class="cta__chrome-label" data-scramble data-i18n="cta.chrome">PARTNERSHIPS · 2025 / 2026</span>
+          <span class="cta__chrome-line"></span>
+        </div>
+        <h2 class="cta__title" data-reveal data-i18n-html="cta.title">
+          Built <em>to grow</em><br />together.
+        </h2>
+        <p class="cta__sub" data-reveal data-i18n="cta.sub">
+          We work with a small number of founders, allocators and institutions
+          each year. If you’re building something that should outlast the
+          cycle that created it, we’d like to hear from you.
+        </p>
+
+        <form class="cta__form" data-reveal onsubmit="event.preventDefault(); this.classList.add('is-sent');">
+          <label class="cta__field">
+            <span data-i18n="cta.field.name">Name</span>
+            <input type="text" required name="name" autocomplete="name" />
+          </label>
+          <label class="cta__field">
+            <span data-i18n="cta.field.email">Email</span>
+            <input type="email" required name="email" autocomplete="email" />
+          </label>
+          <label class="cta__field cta__field--full">
+            <span data-i18n="cta.field.msg">What are you building?</span>
+            <textarea rows="3" required name="message"></textarea>
+          </label>
+          <div class="cta__submit">
+            <button type="submit" class="btn btn--primary btn--lg" data-magnetic>
+              <span>
+                <span class="btn__label" data-i18n="cta.submit">Send a message</span>
+                <svg class="btn__icon" viewBox="0 0 24 24"><use href="#icon-arrow" /></svg>
+              </span>
+            </button>
+            <p class="cta__legal" data-i18n="cta.legal">
+              By submitting you agree to be contacted by Frago Vanguard
+              Group. We respond in &lt;48h.
+            </p>
+          </div>
+          <p class="cta__success" data-i18n="cta.success">
+            Thank you. The desk will be in touch within 48 hours.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <!-- ─────────────  FOOTER  ───────────── -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <svg class="footer__mark" viewBox="0 0 80 80" aria-hidden="true"><use href="#v-mark" /></svg>
+          <div>
+            <p class="footer__name">Frago Vanguard Group</p>
+            <p class="footer__sub" data-i18n="ft.brand.sub">Built to grow together.</p>
+          </div>
+        </div>
+
+        <div class="footer__cols">
+          <div>
+            <p class="footer__col-title" data-i18n="ft.col.group">Group</p>
+            <ul>
+              <li><a href="#vision" data-i18n="ft.link.vision">Vision</a></li>
+              <li><a href="#ecosystem" data-i18n="ft.link.ecosystem">Ecosystem</a></li>
+              <li><a href="#approach" data-i18n="ft.link.approach">Approach</a></li>
+              <li><a href="#capabilities" data-i18n="ft.link.capabilities">Capabilities</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title" data-i18n="ft.col.platforms">Platforms</p>
+            <ul>
+              <li><a href="#ecosystem">Vanguard Capital</a></li>
+              <li><a href="#ecosystem">Vanguard Studios</a></li>
+              <li><a href="#ecosystem">Vanguard Council</a></li>
+              <li><a href="#ecosystem">Vanguard Futures</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title" data-i18n="ft.col.contact">Contact</p>
+            <ul>
+              <li><a href="mailto:desk@fragovanguard.com">desk@fragovanguard.com</a></li>
+              <li><a href="#contact" data-i18n="ft.link.partnerships">Partnerships</a></li>
+              <li><a href="#contact" data-i18n="ft.link.press">Press</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p data-i18n="ft.bottom">© 2025 Frago Vanguard Group · Impacto · Escalabilidad · Evolución constante</p>
+        <p class="footer__locale">CR · ES · EN</p>
+      </div>
+    </footer>
+
+    <!-- ─────────────  SCRIPTS  ───────────── -->
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>

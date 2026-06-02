@@ -1,0 +1,37 @@
+{
+  "name": "Frago Vanguard Group",
+  "short_name": "Vanguard",
+  "description": "A global innovation ecosystem. Built to grow together.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "lang": "en",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Partner with us",
+      "short_name": "Partner",
+      "description": "Reach the Vanguard desk",
+      "url": "/#contact",
+      "icons": [{ "src": "assets/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "The Vanguard Arc",
+      "short_name": "Arc",
+      "description": "The three-part Vanguard scrollytelling",
+      "url": "/#cinema",
+      "icons": [{ "src": "assets/favicon.svg", "sizes": "any" }]
+    }
+  ]
+}

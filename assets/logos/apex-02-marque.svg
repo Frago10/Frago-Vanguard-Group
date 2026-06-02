@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- APEX MARQUE — V with classical inscription-style serifs at the
+       top of each blade. Brand blue appears only as a small inverted
+       triangle inset at the V tip — restraint as statement.
+       Reads like a Trajan-column initial. -->
+
+  <!-- Left blade with subtle serif cap -->
+  <path
+    d="M 10 14 L 32 14 L 30 19 L 22 19 L 50 84 L 46 84 Z"
+    fill="#ffffff"
+  />
+  <!-- Right blade with subtle serif cap -->
+  <path
+    d="M 68 14 L 90 14 L 78 19 L 70 19 L 50 84 L 54 84 Z"
+    fill="#ffffff"
+  />
+  <!-- Blue inverted accent at V tip (inside silhouette) -->
+  <path d="M 46 70 L 54 70 L 50 84 Z" fill="#2563EB"/>
+</svg>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="robots" content="noindex" />
+    <title>404 — Off the horizon · Frago Vanguard Group</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+      onload="this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+      onload="this.rel='stylesheet'"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <style>
+      .err {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 64px 24px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .err__inner { max-width: 640px; }
+      .err__mark { width: 88px; height: 88px; color: #fff; margin: 0 auto 32px; }
+      .err__kicker {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--brand-soft);
+        margin: 0 0 18px;
+      }
+      .err__code {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: clamp(112px, 18vw, 220px);
+        line-height: 0.86;
+        letter-spacing: -0.05em;
+        margin: 0;
+        background: var(--silver);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .err__code em {
+        font-style: italic;
+        font-weight: 400;
+        background: linear-gradient(180deg, #fff 0%, #dde2ed 55%, #8aa6f0 125%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .err__title {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: clamp(28px, 3.4vw, 44px);
+        margin: 24px 0 16px;
+        color: var(--text-primary);
+        letter-spacing: -0.02em;
+      }
+      .err__body {
+        font-size: clamp(15px, 1.2vw, 18px);
+        line-height: 1.6;
+        color: var(--text-tertiary);
+        margin: 0 0 36px;
+      }
+      .err__actions {
+        display: inline-flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .err__chrome {
+        position: absolute;
+        top: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Ambient backdrop (same atmospheric layers as the main site) -->
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient__grid"></div>
+      <div class="ambient__glow ambient__glow--a"></div>
+      <div class="ambient__glow ambient__glow--b"></div>
+      <div class="ambient__noise"></div>
+    </div>
+
+    <!-- Reusable SEAL mark -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="v-mark" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="33" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M 40 7 A 33 33 0 0 1 73 40" fill="none" stroke="#2563EB" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M 22 26 L 40 62 L 58 26" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+        </symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+      </defs>
+    </svg>
+
+    <p class="err__chrome">FVG · 404 · OFF THE HORIZON</p>
+
+    <main class="err">
+      <div class="err__inner">
+        <svg class="err__mark" viewBox="0 0 80 80" aria-hidden="true"><use href="#v-mark" /></svg>
+        <p class="err__kicker">— UNCHARTED COORDINATES</p>
+        <h1 class="err__code">4<em>0</em>4</h1>
+        <h2 class="err__title">This page sits off the long horizon.</h2>
+        <p class="err__body">
+          The link you followed has dissolved into the cycle that produced it.
+          Conviction said move on — let's get you back to the institution.
+        </p>
+        <div class="err__actions">
+          <a class="btn btn--primary btn--lg" href="/">
+            <span>
+              <span class="btn__label">Return to the index</span>
+              <svg class="btn__icon" viewBox="0 0 24 24"><use href="#icon-arrow" /></svg>
+            </span>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="/#contact">
+            <span><span class="btn__label">Talk to the desk</span></span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

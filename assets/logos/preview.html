@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEX — 6 elegant derivatives · Frago Vanguard Group</title>
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --surface: #111114;
+        --surface-2: #16161a;
+        --line: rgba(255, 255, 255, 0.06);
+        --line-bright: rgba(255, 255, 255, 0.16);
+        --brand: #2563eb;
+        --brand-soft: #3b82f6;
+        --text: #f5f5f7;
+        --text-muted: #8a8a90;
+        --text-dim: #5c5c63;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", system-ui, sans-serif;
+        padding: 64px 32px 96px;
+        min-height: 100vh;
+      }
+      .container { max-width: 1280px; margin: 0 auto; }
+      .head {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 64px;
+      }
+      .head h1 {
+        font-family: "General Sans", sans-serif;
+        font-size: 48px;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        margin: 0 0 16px;
+        line-height: 1.05;
+      }
+      .head h1 em {
+        font-style: italic;
+        font-weight: 500;
+        background: linear-gradient(180deg, #fff 0%, #dde2ed 60%, #8aa6f0 125%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .head p {
+        color: var(--text-muted);
+        font-size: 16px;
+        margin: 0;
+        line-height: 1.6;
+      }
+      .kicker {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--brand-soft);
+        margin-bottom: 14px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      @media (min-width: 720px) {
+        .grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (min-width: 1100px) {
+        .grid { grid-template-columns: 1fr 1fr 1fr; }
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: border-color 280ms ease, transform 380ms cubic-bezier(0.16,1,0.3,1);
+      }
+      .card:hover {
+        border-color: rgba(37, 99, 235, 0.35);
+        transform: translateY(-3px);
+      }
+      .card__head {
+        padding: 22px 24px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .card__num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        color: var(--text-dim);
+      }
+      .card__name {
+        font-family: "General Sans", sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: -0.015em;
+        margin: 4px 0 4px;
+      }
+      .card__tagline {
+        font-style: italic;
+        color: var(--text-muted);
+        font-size: 13px;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      /* Render */
+      .render {
+        background:
+          radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.08), transparent 70%),
+          var(--bg);
+        padding: 40px;
+        display: grid;
+        place-items: center;
+        min-height: 240px;
+        border-block: 1px solid var(--line);
+      }
+      .render svg { width: 160px; height: 160px; display: block; }
+
+      /* Scale row */
+      .scales {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        gap: 12px;
+        padding: 18px 20px;
+        background: rgba(255,255,255,0.015);
+      }
+      .scale {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .scale svg { display: block; }
+      .scale .size {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        color: var(--text-dim);
+      }
+      .scale--xs svg { width: 14px; height: 14px; }
+      .scale--s  svg { width: 20px; height: 20px; }
+      .scale--m  svg { width: 32px; height: 32px; }
+      .scale--l  svg { width: 56px; height: 56px; }
+
+      /* Lockup */
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 24px;
+        background: rgba(255,255,255,0.01);
+        border-top: 1px solid var(--line);
+      }
+      .lockup svg { width: 34px; height: 34px; flex-shrink: 0; }
+      .lockup__text { display: flex; flex-direction: column; line-height: 1; }
+      .lockup__top {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.32em;
+        color: var(--text-dim);
+      }
+      .lockup__main {
+        font-family: "General Sans", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.16em;
+        margin-top: 3px;
+      }
+
+      .rationale {
+        padding: 18px 24px 22px;
+        color: var(--text-muted);
+        font-size: 13.5px;
+        line-height: 1.6;
+        flex: 1;
+      }
+      .rationale strong { color: var(--text); font-weight: 500; }
+      .rationale em { color: var(--brand-soft); font-style: italic; }
+      .traits {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 14px;
+      }
+      .trait {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        padding: 3px 9px;
+        border-radius: 999px;
+        border: 1px solid var(--line-bright);
+        color: var(--text);
+        text-transform: uppercase;
+      }
+
+      .verdict {
+        margin-top: 80px;
+        padding: 40px;
+        background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+      }
+      .verdict h2 {
+        font-family: "General Sans", sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        margin: 0 0 20px;
+        letter-spacing: -0.015em;
+      }
+      .verdict p {
+        color: var(--text-muted);
+        font-size: 14.5px;
+        line-height: 1.65;
+        margin: 0 0 14px;
+      }
+      .verdict p:last-child { margin-bottom: 0; }
+      .verdict strong { color: var(--text); font-weight: 500; }
+      .verdict-pick {
+        color: var(--brand-soft);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="head">
+        <p class="kicker">UX · APEX DERIVATIVES · ROUND 02</p>
+        <h1>Six elegant <em>refinements</em> of APEX.</h1>
+        <p>
+          Restraint as design language. Each proposal collapses APEX's three
+          fragments into a unified silhouette with one quiet brand-blue
+          accent — built to feel institutional, archival and timeless
+          rather than geometric and busy.
+        </p>
+      </header>
+
+      <div class="grid">
+        <!-- ───────────────── 01 UNIFIED ───────────────── -->
+        <article class="card">
+          <div class="card__head">
+            <div>
+              <p class="card__num">APEX · 01</p>
+              <h2 class="card__name">UNIFIED</h2>
+              <p class="card__tagline">One silhouette. One quiet accent.</p>
+            </div>
+          </div>
+          <div class="render">
+            <svg viewBox="0 0 100 100">
+              <path d="M 16 14 L 26 14 L 50 78 L 74 14 L 84 14 L 56 90 L 44 90 Z" fill="#fff"/>
+              <path d="M 62 18 L 78 18 L 70 36 Z" fill="#2563EB"/>
+            </svg>
+          </div>
+          <div class="scales">
+            <div class="scale scale--xs"><svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 78 L 74 14 L 84 14 L 56 90 L 44 90 Z" fill="#fff"/><path d="M 62 18 L 78 18 L 70 36 Z" fill="#2563EB"/></svg><span class="size">14</span></div>
+            <div class="scale scale--s"><svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 78 L 74 14 L 84 14 L 56 90 L 44 90 Z" fill="#fff"/><path d="M 62 18 L 78 18 L 70 36 Z" fill="#2563EB"/></svg><span class="size">20</span></div>
+            <div class="scale scale--m"><svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 78 L 74 14 L 84 14 L 56 90 L 44 90 Z" fill="#fff"/><path d="M 62 18 L 78 18 L 70 36 Z" fill="#2563EB"/></svg><span class="size">32</span></div>
+            <div class="scale scale--l"><svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 78 L 74 14 L 84 14 L 56 90 L 44 90 Z" fill="#fff"/><path d="M 62 18 L 78 18 L 70 36 Z" fill="#2563EB"/></svg><span class="size">56</span></div>
+          </div>
+          <div class="lockup">
+            <svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 78 L 74 14 L 84 14 L 56 90 L 44 90 Z" fill="#fff"/><path d="M 62 18 L 78 18 L 70 36 Z" fill="#2563EB"/></svg>
+            <div class="lockup__text"><span class="lockup__top">FRAGO</span><span class="lockup__main">VANGUARD</span></div>
+          </div>
+          <p class="rationale">
+            <strong>The most direct evolution of APEX.</strong> A complete chevron
+            V (one continuous path, not three separate pieces) with a
+            small brand-blue triangle inset at the top of the right blade.
+            Eliminates the "broken" feel by keeping everything <em>inside</em>
+            the silhouette.
+            <div class="traits">
+              <span class="trait">Familiar</span>
+              <span class="trait">Resolved</span>
+              <span class="trait">Quiet</span>
+            </div>
+          </p>
+        </article>
+
+        <!-- ───────────────── 02 MARQUE ───────────────── -->
+        <article class="card">
+          <div class="card__head">
+            <div>
+              <p class="card__num">APEX · 02</p>
+              <h2 class="card__name">MARQUE</h2>
+              <p class="card__tagline">Inscription-style. Trajan in spirit.</p>
+            </div>
+          </div>
+          <div class="render">
+            <svg viewBox="0 0 100 100">
+              <path d="M 10 14 L 32 14 L 30 19 L 22 19 L 50 84 L 46 84 Z" fill="#fff"/>
+              <path d="M 68 14 L 90 14 L 78 19 L 70 19 L 50 84 L 54 84 Z" fill="#fff"/>
+              <path d="M 46 70 L 54 70 L 50 84 Z" fill="#2563EB"/>
+            </svg>
+          </div>
+          <div class="scales">
+            <div class="scale scale--xs"><svg viewBox="0 0 100 100"><path d="M 10 14 L 32 14 L 30 19 L 22 19 L 50 84 L 46 84 Z" fill="#fff"/><path d="M 68 14 L 90 14 L 78 19 L 70 19 L 50 84 L 54 84 Z" fill="#fff"/><path d="M 46 70 L 54 70 L 50 84 Z" fill="#2563EB"/></svg><span class="size">14</span></div>
+            <div class="scale scale--s"><svg viewBox="0 0 100 100"><path d="M 10 14 L 32 14 L 30 19 L 22 19 L 50 84 L 46 84 Z" fill="#fff"/><path d="M 68 14 L 90 14 L 78 19 L 70 19 L 50 84 L 54 84 Z" fill="#fff"/><path d="M 46 70 L 54 70 L 50 84 Z" fill="#2563EB"/></svg><span class="size">20</span></div>
+            <div class="scale scale--m"><svg viewBox="0 0 100 100"><path d="M 10 14 L 32 14 L 30 19 L 22 19 L 50 84 L 46 84 Z" fill="#fff"/><path d="M 68 14 L 90 14 L 78 19 L 70 19 L 50 84 L 54 84 Z" fill="#fff"/><path d="M 46 70 L 54 70 L 50 84 Z" fill="#2563EB"/></svg><span class="size">32</span></div>
+            <div class="scale scale--l"><svg viewBox="0 0 100 100"><path d="M 10 14 L 32 14 L 30 19 L 22 19 L 50 84 L 46 84 Z" fill="#fff"/><path d="M 68 14 L 90 14 L 78 19 L 70 19 L 50 84 L 54 84 Z" fill="#fff"/><path d="M 46 70 L 54 70 L 50 84 Z" fill="#2563EB"/></svg><span class="size">56</span></div>
+          </div>
+          <div class="lockup">
+            <svg viewBox="0 0 100 100"><path d="M 10 14 L 32 14 L 30 19 L 22 19 L 50 84 L 46 84 Z" fill="#fff"/><path d="M 68 14 L 90 14 L 78 19 L 70 19 L 50 84 L 54 84 Z" fill="#fff"/><path d="M 46 70 L 54 70 L 50 84 Z" fill="#2563EB"/></svg>
+            <div class="lockup__text"><span class="lockup__top">FRAGO</span><span class="lockup__main">VANGUARD</span></div>
+          </div>
+          <p class="rationale">
+            <strong>The most classical interpretation.</strong> Subtle serif caps
+            on each blade evoke <em>inscription tradition</em> — Trajan's column,
+            stone-cut institutional marks. Brand blue is a single quiet
+            inverted triangle at the V tip. Reads as <em>heritage</em>.
+            <div class="traits">
+              <span class="trait">Classical</span>
+              <span class="trait">Heritage</span>
+              <span class="trait">Editorial</span>
+            </div>
+          </p>
+        </article>
+
+        <!-- ───────────────── 03 MONOLINE ───────────────── -->
+        <article class="card">
+          <div class="card__head">
+            <div>
+              <p class="card__num">APEX · 03</p>
+              <h2 class="card__name">MONOLINE</h2>
+              <p class="card__tagline">One hairline. One point of color.</p>
+            </div>
+          </div>
+          <div class="render">
+            <svg viewBox="0 0 100 100">
+              <path d="M 14 14 L 50 86 L 86 14" stroke="#fff" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+              <circle cx="50" cy="40" r="5" fill="#2563EB"/>
+            </svg>
+          </div>
+          <div class="scales">
+            <div class="scale scale--xs"><svg viewBox="0 0 100 100"><path d="M 14 14 L 50 86 L 86 14" stroke="#fff" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><circle cx="50" cy="40" r="5" fill="#2563EB"/></svg><span class="size">14</span></div>
+            <div class="scale scale--s"><svg viewBox="0 0 100 100"><path d="M 14 14 L 50 86 L 86 14" stroke="#fff" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><circle cx="50" cy="40" r="5" fill="#2563EB"/></svg><span class="size">20</span></div>
+            <div class="scale scale--m"><svg viewBox="0 0 100 100"><path d="M 14 14 L 50 86 L 86 14" stroke="#fff" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><circle cx="50" cy="40" r="5" fill="#2563EB"/></svg><span class="size">32</span></div>
+            <div class="scale scale--l"><svg viewBox="0 0 100 100"><path d="M 14 14 L 50 86 L 86 14" stroke="#fff" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><circle cx="50" cy="40" r="5" fill="#2563EB"/></svg><span class="size">56</span></div>
+          </div>
+          <div class="lockup">
+            <svg viewBox="0 0 100 100"><path d="M 14 14 L 50 86 L 86 14" stroke="#fff" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/><circle cx="50" cy="40" r="5" fill="#2563EB"/></svg>
+            <div class="lockup__text"><span class="lockup__top">FRAGO</span><span class="lockup__main">VANGUARD</span></div>
+          </div>
+          <p class="rationale">
+            <strong>Maximum restraint.</strong> The V becomes a single hairline V
+            stroke, with a single brand-blue dot inhabiting the opening.
+            Reads like a watchmaker's mark — <em>quality through reduction</em>.
+            Foil-stamps, embossing and engraving all love this.
+            <div class="traits">
+              <span class="trait">Minimal</span>
+              <span class="trait">Refined</span>
+              <span class="trait">Versatile</span>
+            </div>
+          </p>
+        </article>
+
+        <!-- ───────────────── 04 FOIL ───────────────── -->
+        <article class="card">
+          <div class="card__head">
+            <div>
+              <p class="card__num">APEX · 04</p>
+              <h2 class="card__name">FOIL</h2>
+              <p class="card__tagline">Solid foundation + leading-edge outline.</p>
+            </div>
+          </div>
+          <div class="render">
+            <svg viewBox="0 0 100 100">
+              <path d="M 16 14 L 26 14 L 50 86 L 46 86 Z" fill="#fff"/>
+              <path d="M 84 14 L 74 14 L 50 86 L 54 86 Z" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linejoin="miter"/>
+            </svg>
+          </div>
+          <div class="scales">
+            <div class="scale scale--xs"><svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 86 L 46 86 Z" fill="#fff"/><path d="M 84 14 L 74 14 L 50 86 L 54 86 Z" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linejoin="miter"/></svg><span class="size">14</span></div>
+            <div class="scale scale--s"><svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 86 L 46 86 Z" fill="#fff"/><path d="M 84 14 L 74 14 L 50 86 L 54 86 Z" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linejoin="miter"/></svg><span class="size">20</span></div>
+            <div class="scale scale--m"><svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 86 L 46 86 Z" fill="#fff"/><path d="M 84 14 L 74 14 L 50 86 L 54 86 Z" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linejoin="miter"/></svg><span class="size">32</span></div>
+            <div class="scale scale--l"><svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 86 L 46 86 Z" fill="#fff"/><path d="M 84 14 L 74 14 L 50 86 L 54 86 Z" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linejoin="miter"/></svg><span class="size">56</span></div>
+          </div>
+          <div class="lockup">
+            <svg viewBox="0 0 100 100"><path d="M 16 14 L 26 14 L 50 86 L 46 86 Z" fill="#fff"/><path d="M 84 14 L 74 14 L 50 86 L 54 86 Z" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linejoin="miter"/></svg>
+            <div class="lockup__text"><span class="lockup__top">FRAGO</span><span class="lockup__main">VANGUARD</span></div>
+          </div>
+          <p class="rationale">
+            <strong>Filled left, outlined right.</strong> The fill/stroke contrast
+            creates instant hierarchy: <em>solid foundation</em> + a
+            leading-edge outline marking where the vanguard is going.
+            No overlap, no escape past the frame — just two clean blades
+            in dialogue.
+            <div class="traits">
+              <span class="trait">Tension</span>
+              <span class="trait">Hierarchical</span>
+              <span class="trait">Forward</span>
+            </div>
+          </p>
+        </article>
+
+        <!-- ───────────────── 05 SEAL ───────────────── -->
+        <article class="card">
+          <div class="card__head">
+            <div>
+              <p class="card__num">APEX · 05</p>
+              <h2 class="card__name">SEAL</h2>
+              <p class="card__tagline">A V inscribed in a horizon ring.</p>
+            </div>
+          </div>
+          <div class="render">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1"/>
+              <path d="M 50 8 A 42 42 0 0 1 92 50" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M 28 32 L 50 76 L 72 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </div>
+          <div class="scales">
+            <div class="scale scale--xs"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1"/><path d="M 50 8 A 42 42 0 0 1 92 50" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><path d="M 28 32 L 50 76 L 72 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg><span class="size">14</span></div>
+            <div class="scale scale--s"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1"/><path d="M 50 8 A 42 42 0 0 1 92 50" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><path d="M 28 32 L 50 76 L 72 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg><span class="size">20</span></div>
+            <div class="scale scale--m"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1"/><path d="M 50 8 A 42 42 0 0 1 92 50" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><path d="M 28 32 L 50 76 L 72 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg><span class="size">32</span></div>
+            <div class="scale scale--l"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1"/><path d="M 50 8 A 42 42 0 0 1 92 50" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><path d="M 28 32 L 50 76 L 72 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg><span class="size">56</span></div>
+          </div>
+          <div class="lockup">
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="1"/><path d="M 50 8 A 42 42 0 0 1 92 50" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/><path d="M 28 32 L 50 76 L 72 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg>
+            <div class="lockup__text"><span class="lockup__top">FRAGO</span><span class="lockup__main">VANGUARD</span></div>
+          </div>
+          <p class="rationale">
+            <strong>A sovereign mark.</strong> The V inscribed inside a hairline
+            circle — a coin, a seal, a sovereign disc. The blue is a
+            single arc segment at the upper-right of the rim: the
+            <em>leading position</em> on a horizon. Most institutional
+            of the six.
+            <div class="traits">
+              <span class="trait">Sovereign</span>
+              <span class="trait">Archival</span>
+              <span class="trait">Timeless</span>
+            </div>
+          </p>
+        </article>
+
+        <!-- ───────────────── 06 HORIZON ───────────────── -->
+        <article class="card">
+          <div class="card__head">
+            <div>
+              <p class="card__num">APEX · 06</p>
+              <h2 class="card__name">HORIZON</h2>
+              <p class="card__tagline">The V stands on the long horizon.</p>
+            </div>
+          </div>
+          <div class="render">
+            <svg viewBox="0 0 100 100">
+              <path d="M 18 16 L 28 16 L 50 74 L 72 16 L 82 16 L 56 84 L 44 84 Z" fill="#fff"/>
+              <line x1="18" y1="92" x2="82" y2="92" stroke="#2563EB" stroke-width="2" stroke-linecap="square"/>
+            </svg>
+          </div>
+          <div class="scales">
+            <div class="scale scale--xs"><svg viewBox="0 0 100 100"><path d="M 18 16 L 28 16 L 50 74 L 72 16 L 82 16 L 56 84 L 44 84 Z" fill="#fff"/><line x1="18" y1="92" x2="82" y2="92" stroke="#2563EB" stroke-width="2" stroke-linecap="square"/></svg><span class="size">14</span></div>
+            <div class="scale scale--s"><svg viewBox="0 0 100 100"><path d="M 18 16 L 28 16 L 50 74 L 72 16 L 82 16 L 56 84 L 44 84 Z" fill="#fff"/><line x1="18" y1="92" x2="82" y2="92" stroke="#2563EB" stroke-width="2" stroke-linecap="square"/></svg><span class="size">20</span></div>
+            <div class="scale scale--m"><svg viewBox="0 0 100 100"><path d="M 18 16 L 28 16 L 50 74 L 72 16 L 82 16 L 56 84 L 44 84 Z" fill="#fff"/><line x1="18" y1="92" x2="82" y2="92" stroke="#2563EB" stroke-width="2" stroke-linecap="square"/></svg><span class="size">32</span></div>
+            <div class="scale scale--l"><svg viewBox="0 0 100 100"><path d="M 18 16 L 28 16 L 50 74 L 72 16 L 82 16 L 56 84 L 44 84 Z" fill="#fff"/><line x1="18" y1="92" x2="82" y2="92" stroke="#2563EB" stroke-width="2" stroke-linecap="square"/></svg><span class="size">56</span></div>
+          </div>
+          <div class="lockup">
+            <svg viewBox="0 0 100 100"><path d="M 18 16 L 28 16 L 50 74 L 72 16 L 82 16 L 56 84 L 44 84 Z" fill="#fff"/><line x1="18" y1="92" x2="82" y2="92" stroke="#2563EB" stroke-width="2" stroke-linecap="square"/></svg>
+            <div class="lockup__text"><span class="lockup__top">FRAGO</span><span class="lockup__main">VANGUARD</span></div>
+          </div>
+          <p class="rationale">
+            <strong>The thesis, expressed as form.</strong> A pure white chevron V
+            stands on a thin brand-blue horizontal line — the
+            <em>long horizon</em>. The firm's investment thesis becomes
+            the mark itself. The V is anchored, not floating; the line
+            is the firm's baseline.
+            <div class="traits">
+              <span class="trait">Conceptual</span>
+              <span class="trait">Anchored</span>
+              <span class="trait">Narrative</span>
+            </div>
+          </p>
+        </article>
+      </div>
+
+      <div class="verdict">
+        <h2>UX verdict</h2>
+        <p>
+          For an institution that wants to feel <strong>timeless,
+          credible and quiet</strong> — the three strongest candidates are
+          <span class="verdict-pick">UNIFIED (01)</span>,
+          <span class="verdict-pick">MARQUE (02)</span>, and
+          <span class="verdict-pick">HORIZON (06)</span>.
+        </p>
+        <p>
+          <strong>UNIFIED</strong> is the safest evolution — recognizable
+          continuity with what you have today, but resolved into one
+          silhouette. <strong>MARQUE</strong> is the most heritage-leaning
+          and reads as 100-year institutional. <strong>HORIZON</strong>
+          carries the firm's actual thesis in the geometry itself — the
+          line below the V <em>is</em> the long horizon.
+        </p>
+        <p>
+          MONOLINE (03) is best for foil-stamp / engraved applications.
+          FOIL (04) is the most "design-forward" without losing class.
+          SEAL (05) is the most archival — closer to a banking
+          institution's coat-of-arms.
+        </p>
+        <p>
+          Tell me which one resonates and I'll wire it into every
+          touchpoint on the live site — nav, hero, footer, preloader,
+          favicon, OG, pinned manifesto.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

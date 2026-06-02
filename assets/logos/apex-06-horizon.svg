@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- APEX HORIZON — a pure white V resting on a thin brand-blue
+       horizontal line (the "long horizon"). The V stands ON the
+       horizon, anchored. Conceptually translates the firm's thesis
+       ("we play the long horizon") directly into the mark.
+       Single iconic gesture — no fragmentation, no excess. -->
+
+  <!-- Solid white V chevron -->
+  <path
+    d="M 18 16 L 28 16 L 50 74 L 72 16 L 82 16 L 56 84 L 44 84 Z"
+    fill="#ffffff"
+  />
+
+  <!-- Thin brand-blue horizon line below (the baseline of the firm) -->
+  <line
+    x1="18" y1="92" x2="82" y2="92"
+    stroke="#2563EB"
+    stroke-width="2"
+    stroke-linecap="square"
+  />
+</svg>
