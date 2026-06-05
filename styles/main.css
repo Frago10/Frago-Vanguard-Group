@@ -1655,13 +1655,20 @@ main {
 /* CRITICAL: background-clip:text only clips DIRECT text content.
    After char-split, the <em> contains spans, not text — so we must
    apply the gradient at the .char level. Vertical-only gradient stays
-   visually continuous across the word. */
+   visually continuous across the word.
+
+   IMPORTANT: padding-right + negative margin extends the background
+   paint area to the RIGHT so the italic slant has gradient to clip
+   against — without this, the italic overhang has no gradient and
+   appears invisible/transparent (= "tc grcw" instead of "to grow"). */
 .hero__title em .char {
   background: linear-gradient(180deg, #ffffff 0%, #dde2ed 55%, #8aa6f0 125%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  padding: 0 0.35em 0 0;
+  margin: 0 -0.35em 0 0;
 }
 /* Fallback when JS hasn't run yet (no chars yet) — keep the em readable */
 .hero__title em:not(:has(.char)) {
