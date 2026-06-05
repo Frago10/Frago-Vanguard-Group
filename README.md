@@ -51,11 +51,34 @@ Then open `http://localhost:8000`.
 
 ---
 
-## 🌐 Deploy on GitHub Pages
+## ▲ Deploy on Vercel (recommended)
+
+The repo ships with a `vercel.json` that configures clean URLs,
+per-asset cache policies, service-worker headers, security headers
+(HSTS, X-Frame-Options, Referrer-Policy, Permissions-Policy) and the
+correct MIME types for `manifest.webmanifest` and `sw.js`.
+
+**One-click deploy:**
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FFrago10%2FFrago-Vanguard-Group)
+
+**Manual deploy:**
+
+1. Visit [vercel.com/new](https://vercel.com/new) and import this repo
+2. Framework preset: **Other** (auto-detected — no build step)
+3. Click **Deploy**
+4. Site goes live at `https://<your-project>.vercel.app/`
+
+Every `git push` to `main` triggers an automatic redeploy.
+
+## 🌐 Deploy on GitHub Pages (alternative)
 
 1. Push to `main`
 2. Settings → Pages → Source: `Deploy from a branch` → `main` / `(root)`
 3. Visit `https://<user>.github.io/Frago-Vanguard-Group/`
+
+> Note: GitHub Pages doesn't apply `vercel.json` headers. The service
+> worker still works, but cache policies will be defaults.
 
 ---
 

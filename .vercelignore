@@ -1,0 +1,15 @@
+# Internal docs — useful in repo, not on the live site
+CONTEXT.txt
+
+# Git metadata
+.git/
+.gitignore
+.gitattributes
+
+# OS / IDE noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.vs/
