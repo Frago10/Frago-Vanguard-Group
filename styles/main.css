@@ -756,14 +756,15 @@ html.has-custom-cursor [data-magnetic] { cursor: none; }
   display: inline-block;
   overflow: hidden;
   vertical-align: baseline;
-  /* Generous padding around the glyph extents so nothing clips:
-     - top: 0.35em — ascenders / italic tops at tight line-height
-     - bottom: 0.35em — descenders (g, j, p, q, y) — bumped
-     - right: 0.2em  — italic slant overhang — bumped significantly
+  /* Extra-generous clip box so no character is ever cut:
+     - top: 0.4em — ascenders / italic tops at tight line-height
+     - bottom: 0.4em — descenders (g, j, p, q, y)
+     - right: 0.45em — italic slant overhang at very large display sizes
+     - left:  0.08em — italic top-left overhang for letters like "o"
      Negative margins of equal magnitude collapse the visual size back
      to the natural inline flow, so layout doesn't shift. */
-  padding: 0.35em 0.2em 0.35em 0.04em;
-  margin: -0.35em -0.2em -0.35em -0.04em;
+  padding: 0.4em 0.45em 0.4em 0.08em;
+  margin: -0.4em -0.45em -0.4em -0.08em;
   line-height: inherit;
 }
 .char {
@@ -1067,11 +1068,11 @@ ol {
   font-style: italic;
   font-family: var(--font-display);
   font-weight: 500;
-  /* GENEROUS right-edge padding so italic slants ("n", "s") never get
+  /* HEAVY right-edge padding so italic slants ("n", "s") never get
      clipped by parent overflow. Bottom padding for descenders.
      Negative margins compensate so layout doesn't shift. */
-  padding: 0 0.18em 0.04em 0;
-  margin: 0 -0.18em 0 0;
+  padding: 0 0.3em 0.06em 0;
+  margin: 0 -0.3em 0 0;
   display: inline-block;
 }
 
@@ -1643,10 +1644,12 @@ main {
 .hero__title em {
   font-style: italic;
   font-weight: 400;
-  /* GENEROUS horizontal room so the italic slant doesn't get clipped.
-     "grow" italic at 168px font has a substantial right-side slant. */
-  padding: 0 0.16em 0.04em 0;
-  margin: 0 -0.16em 0 0;
+  /* HEAVY horizontal padding so the italic slant has full clearance.
+     "grow" italic at 168px font has a substantial right-side slant —
+     combined with the char-mask right-padding bump, this guarantees
+     no clipping at any viewport size. */
+  padding: 0 0.3em 0.06em 0;
+  margin: 0 -0.3em 0 0;
   display: inline-block;
 }
 /* CRITICAL: background-clip:text only clips DIRECT text content.
@@ -2791,8 +2794,8 @@ main {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  padding: 0 0.16em 0.04em 0;
-  margin: 0 -0.16em 0 0;
+  padding: 0 0.25em 0.06em 0;
+  margin: 0 -0.25em 0 0;
   display: inline-block;
 }
 .pinned__stage-body {
@@ -3188,8 +3191,8 @@ main {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  padding: 0 0.16em 0.04em 0;
-  margin: 0 -0.16em 0 0;
+  padding: 0 0.25em 0.06em 0;
+  margin: 0 -0.25em 0 0;
   display: inline-block;
 }
 .cinema__panel-body {
@@ -3529,8 +3532,8 @@ main {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  padding: 0 0.16em 0.04em 0;
-  margin: 0 -0.16em 0 0;
+  padding: 0 0.3em 0.06em 0;
+  margin: 0 -0.3em 0 0;
   display: inline-block;
 }
 .cta__sub {

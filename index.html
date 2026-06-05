@@ -22,26 +22,30 @@
     <link rel="preconnect" href="https://esm.sh" crossorigin />
     <link rel="dns-prefetch" href="https://esm.sh" />
 
-    <!-- Typography: Satoshi + General Sans (Fontshare) + Inter (Google) — non-blocking -->
+    <!-- Typography: Satoshi + General Sans (Fontshare) + Inter (Google) — non-blocking
+         IMPORTANT: italic variants (400i, 500i) are explicitly loaded so the
+         browser uses the REAL italic font instead of synthesizing one via CSS
+         skew — synthesized italics produce an over-aggressive slant that
+         visibly clips against char-mask overflow boundaries. -->
     <link
       rel="preload"
       as="style"
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&f[]=general-sans@400,500,600,700&display=swap"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&f[]=general-sans@400,400i,500,500i,600,700&display=swap"
       onload="this.rel='stylesheet'"
     />
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
       onload="this.rel='stylesheet'"
     />
     <noscript>
       <link
-        href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&f[]=general-sans@400,500,600,700&display=swap"
+        href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&f[]=general-sans@400,400i,500,500i,600,700&display=swap"
         rel="stylesheet"
       />
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet"
       />
     </noscript>
