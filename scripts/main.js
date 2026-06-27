@@ -1165,11 +1165,10 @@ const bootCritical = () => {
   initCursorTrail();
   initMagnetic();
 };
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", bootCritical);
-} else {
-  bootCritical();
-}
+/* Invoked at the bottom of the file (see end) — bootCritical references
+   initI18n/TRANSLATIONS, which are declared further down, and `const`
+   bindings stay in the temporal dead zone until their declaration line
+   runs. Calling it from here would throw before those are initialized. */
 
 /* ============================================================
    DEFERRED: Lenis + Three.js load AFTER first paint so the
@@ -1588,10 +1587,12 @@ function runParticles(THREE, canvas) {
 }
 
 /* ───────────────  I18N — locale switching EN ⇄ ES  ───────────────
-   Brand vocabulary stays in Spanish in both locales (Impacto,
+   Every visible string — including the brand vocabulary (Impacto,
    Escalabilidad, Evolución constante, Innovación, Confianza,
-   Propósito, Crecimiento — these ARE the brand). Everything else
-   translates carefully without mixing voice. */
+   Propósito, Crecimiento) — is translated in EN mode. Each must be
+   wired through a [data-i18n]/[data-i18n-html]/[data-i18n-aria]
+   element; anything hardcoded into the HTML never gets swapped when
+   the locale toggle runs. */
 const TRANSLATIONS = {
   en: {
     "meta.title": "Frago Vanguard Group — Built to grow together.",
@@ -1602,7 +1603,7 @@ const TRANSLATIONS = {
     "nav.approach": "Approach",
     "nav.capabilities": "Capabilities",
     "nav.insights": "Insights",
-    "nav.explore": "Explora nuestros servicios",
+    "nav.explore": "Explore our services",
     "nav.partner": "Partner with us",
 
     /* Hero */
@@ -1612,6 +1613,18 @@ const TRANSLATIONS = {
     "hero.cta1": "Explore the ecosystem",
     "hero.cta2": "Talk to us",
     "hero.scroll": "SCROLL",
+    "hero.pillar1": "Impact",
+    "hero.pillar2": "Scalability",
+    "hero.pillar3": "Constant evolution",
+
+    /* Marquee */
+    "marquee.w1": "Innovation",
+    "marquee.w2": "Trust",
+    "marquee.w3": "Purpose",
+    "marquee.w4": "Growth",
+    "marquee.w5": "Impact",
+    "marquee.w6": "Scalability",
+    "marquee.w7": "Constant Evolution",
 
     /* Vision */
     "vision.kicker": "Vision",
@@ -1619,6 +1632,10 @@ const TRANSLATIONS = {
     "vision.lead1": "We exist for the long horizon. Frago Vanguard Group is the ecosystem behind operators, founders and institutions that refuse to choose between ambition and discipline.",
     "vision.lead2": "Every venture we touch is engineered to compound — culturally, financially and structurally — so the work outlasts the cycle that produced it.",
     "vision.sign": "Manifesto · 2025",
+    "vision.pillar1.h": "Innovation",
+    "vision.pillar2.h": "Trust",
+    "vision.pillar3.h": "Purpose",
+    "vision.pillar4.h": "Growth",
     "vision.pillar1.body": "We engineer leverage where conventional capital cannot reach — pairing operators with platforms that change the unit economics of an entire category.",
     "vision.pillar2.body": "Trust is a structural decision. Governance, transparency and relentless craft are encoded into how every Vanguard venture is built and reviewed.",
     "vision.pillar3.body": "We deploy conviction into the categories that compound: real economy, frontier technology and human capital. Purpose is the portfolio thesis.",
@@ -1693,14 +1710,22 @@ const TRANSLATIONS = {
 
     /* Manifesto */
     "man.chrome": "MANIFESTO · IN MOTION",
+    "man.stage1.eyebrow": "— INNOVATION",
     "man.stage1.h": "We engineer leverage <em>where capital alone</em> cannot reach.",
     "man.stage1.p": "Frago Vanguard is built for the gap between vision and balance sheet — combining operators, capital and platform thinking to produce outcomes a single asset class never could.",
+    "man.stage2.eyebrow": "— TRUST",
     "man.stage2.h": "Governance and craft, <em>not personality</em>, hold the institution together.",
     "man.stage2.p": "Trust is the structural decision that lets the work compound past its founders. We design boards, cadence and review long before we design product.",
+    "man.stage3.eyebrow": "— PURPOSE",
     "man.stage3.h": "Capital is deployed where <em>compounding is possible</em> — never where attention is loudest.",
     "man.stage3.p": "Real economy. Frontier technology. Human capital. Our thesis ignores the cycle and follows the categories that grow with or without it.",
-    "man.stage4.h": "Growth is the <em>proof</em>. Not the goal.",
+    "man.stage4.eyebrow": "— GROWTH",
+    "man.stage4.h": "Growth is the <em>proof.</em> Not the goal.",
     "man.stage4.p": "When the architecture is right and the operators are right, the numbers follow. Our job is to make sure the underlying engine is built to last the decade — not the quarter.",
+    "man.tag1": "Innovation",
+    "man.tag2": "Trust",
+    "man.tag3": "Purpose",
+    "man.tag4": "Growth",
 
     /* Feature */
     "feat.tag": "Featured initiative",
@@ -1743,6 +1768,10 @@ const TRANSLATIONS = {
 
     /* Lockup */
     "lk.chrome": "— FRAGO VANGUARD · EST. SAN JOSÉ, CR · 2025 —",
+    "lk.aria": "Impact. Scalability. Constant evolution.",
+    "lk.word1": "IMPACT",
+    "lk.word2": "scalability",
+    "lk.word3": "EVOLUTION",
     "lk.foot1": "03 PROMISES",
     "lk.foot2": "ONE THESIS",
     "lk.foot3": "LONG HORIZON",
@@ -1769,7 +1798,7 @@ const TRANSLATIONS = {
     "ft.link.capabilities": "Capabilities",
     "ft.link.partnerships": "Partnerships",
     "ft.link.press": "Press",
-    "ft.bottom": "© 2025 Frago Vanguard Group · Impacto · Escalabilidad · Evolución constante",
+    "ft.bottom": "© 2025 Frago Vanguard Group · Impact · Scalability · Constant evolution",
 
     /* Explore Modal */
     "exp.kicker": "— THE FRAGO ECOSYSTEM",
@@ -1809,6 +1838,18 @@ const TRANSLATIONS = {
     "hero.cta1": "Explora el ecosistema",
     "hero.cta2": "Hablemos",
     "hero.scroll": "DESLIZA",
+    "hero.pillar1": "Impacto",
+    "hero.pillar2": "Escalabilidad",
+    "hero.pillar3": "Evolución constante",
+
+    /* Marquee */
+    "marquee.w1": "Innovación",
+    "marquee.w2": "Confianza",
+    "marquee.w3": "Propósito",
+    "marquee.w4": "Crecimiento",
+    "marquee.w5": "Impacto",
+    "marquee.w6": "Escalabilidad",
+    "marquee.w7": "Evolución constante",
 
     /* Vision */
     "vision.kicker": "Visión",
@@ -1816,6 +1857,10 @@ const TRANSLATIONS = {
     "vision.lead1": "Existimos para el horizonte largo. Frago Vanguard Group es el ecosistema detrás de operadores, fundadores e instituciones que se niegan a elegir entre ambición y disciplina.",
     "vision.lead2": "Cada empresa que tocamos se diseña para componerse — cultural, financiera y estructuralmente — para que el trabajo sobreviva al ciclo que lo produjo.",
     "vision.sign": "Manifiesto · 2025",
+    "vision.pillar1.h": "Innovación",
+    "vision.pillar2.h": "Confianza",
+    "vision.pillar3.h": "Propósito",
+    "vision.pillar4.h": "Crecimiento",
     "vision.pillar1.body": "Construimos apalancamiento donde el capital convencional no llega — emparejando operadores con plataformas que cambian la economía unitaria de una categoría entera.",
     "vision.pillar2.body": "La confianza es una decisión estructural. Gobernanza, transparencia y oficio implacable están codificados en cómo se construye y revisa cada empresa Vanguard.",
     "vision.pillar3.body": "Desplegamos convicción en las categorías que se componen: economía real, tecnología de frontera y capital humano. El propósito es la tesis del portafolio.",
@@ -1890,14 +1935,22 @@ const TRANSLATIONS = {
 
     /* Manifesto */
     "man.chrome": "MANIFIESTO · EN MOVIMIENTO",
+    "man.stage1.eyebrow": "— INNOVACIÓN",
     "man.stage1.h": "Diseñamos apalancamiento <em>donde el capital solo</em> no puede llegar.",
     "man.stage1.p": "Frago Vanguard se construye para la brecha entre visión y balance — combinando operadores, capital y pensamiento de plataforma para producir resultados que una sola clase de activo nunca podría.",
+    "man.stage2.eyebrow": "— CONFIANZA",
     "man.stage2.h": "Gobernanza y oficio, <em>no personalidad</em>, sostienen la institución.",
     "man.stage2.p": "La confianza es la decisión estructural que permite que el trabajo se componga más allá de sus fundadores. Diseñamos boards, cadencia y revisión mucho antes de diseñar producto.",
+    "man.stage3.eyebrow": "— PROPÓSITO",
     "man.stage3.h": "El capital se despliega donde <em>la composición es posible</em> — nunca donde la atención es más ruidosa.",
     "man.stage3.p": "Economía real. Tecnología de frontera. Capital humano. Nuestra tesis ignora el ciclo y sigue las categorías que crecen con o sin él.",
-    "man.stage4.h": "El crecimiento es la <em>prueba</em>. No el objetivo.",
+    "man.stage4.eyebrow": "— CRECIMIENTO",
+    "man.stage4.h": "El crecimiento es la <em>prueba.</em> No el objetivo.",
     "man.stage4.p": "Cuando la arquitectura es correcta y los operadores son correctos, los números siguen. Nuestro trabajo es asegurar que el motor subyacente esté construido para durar la década — no el trimestre.",
+    "man.tag1": "Innovación",
+    "man.tag2": "Confianza",
+    "man.tag3": "Propósito",
+    "man.tag4": "Crecimiento",
 
     /* Feature */
     "feat.tag": "Iniciativa destacada",
@@ -1942,6 +1995,10 @@ const TRANSLATIONS = {
 
     /* Lockup */
     "lk.chrome": "— FRAGO VANGUARD · EST. SAN JOSÉ, CR · 2025 —",
+    "lk.aria": "Impacto. Escalabilidad. Evolución constante.",
+    "lk.word1": "IMPACTO",
+    "lk.word2": "escalabilidad",
+    "lk.word3": "EVOLUCIÓN",
     "lk.foot1": "03 PROMESAS",
     "lk.foot2": "UNA TESIS",
     "lk.foot3": "HORIZONTE LARGO",
@@ -2025,6 +2082,14 @@ const initI18n = () => {
       if (html !== undefined) el.innerHTML = html;
     });
 
+    // aria-label replacements (visual text is split into spans, so the
+    // accessible name is translated separately on the labelled element)
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const key = el.dataset.i18nAria;
+      const text = dict[key];
+      if (text !== undefined) el.setAttribute("aria-label", text);
+    });
+
     // Re-run char-split on hero title (innerHTML was just replaced)
     const heroTitle = document.querySelector('[data-split-text]');
     if (heroTitle) {
@@ -2044,6 +2109,14 @@ const initI18n = () => {
   // Initial apply
   apply(current);
 };
+
+/* Now that bootCritical and everything it calls (including TRANSLATIONS
+   and initI18n) are declared, it's safe to invoke it. */
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootCritical);
+} else {
+  bootCritical();
+}
 
 /* ───────────────  Service worker registration  ─────────────── */
 if ("serviceWorker" in navigator && location.protocol === "https:") {

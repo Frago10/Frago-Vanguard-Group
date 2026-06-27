@@ -443,7 +443,7 @@
 
         <div class="nav__actions">
           <button class="btn btn--ghost" type="button" data-explore-trigger>
-            <span class="btn__label" data-i18n="nav.explore">Explora nuestros servicios</span>
+            <span class="btn__label" data-i18n="nav.explore">Explore our services</span>
           </button>
           <a class="btn btn--primary" href="#contact" data-magnetic>
             <span>
@@ -509,9 +509,9 @@
           </div>
 
           <ul class="hero__pillars" data-reveal>
-            <li><span class="hero__pillars-num">01</span> Impacto</li>
-            <li><span class="hero__pillars-num">02</span> Escalabilidad</li>
-            <li><span class="hero__pillars-num">03</span> Evolución constante</li>
+            <li><span class="hero__pillars-num">01</span> <span data-i18n="hero.pillar1">Impact</span></li>
+            <li><span class="hero__pillars-num">02</span> <span data-i18n="hero.pillar2">Scalability</span></li>
+            <li><span class="hero__pillars-num">03</span> <span data-i18n="hero.pillar3">Constant evolution</span></li>
           </ul>
         </div>
 
@@ -524,20 +524,20 @@
       <!-- ─────────────  MARQUEE  ───────────── -->
       <section class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          <span>Innovación</span><span>·</span>
-          <span>Confianza</span><span>·</span>
-          <span>Propósito</span><span>·</span>
-          <span>Crecimiento</span><span>·</span>
-          <span>Impacto</span><span>·</span>
-          <span>Escalabilidad</span><span>·</span>
-          <span>Evolución constante</span><span>·</span>
-          <span>Innovación</span><span>·</span>
-          <span>Confianza</span><span>·</span>
-          <span>Propósito</span><span>·</span>
-          <span>Crecimiento</span><span>·</span>
-          <span>Impacto</span><span>·</span>
-          <span>Escalabilidad</span><span>·</span>
-          <span>Evolución constante</span><span>·</span>
+          <span data-i18n="marquee.w1">Innovation</span><span>·</span>
+          <span data-i18n="marquee.w2">Trust</span><span>·</span>
+          <span data-i18n="marquee.w3">Purpose</span><span>·</span>
+          <span data-i18n="marquee.w4">Growth</span><span>·</span>
+          <span data-i18n="marquee.w5">Impact</span><span>·</span>
+          <span data-i18n="marquee.w6">Scalability</span><span>·</span>
+          <span data-i18n="marquee.w7">Constant Evolution</span><span>·</span>
+          <span data-i18n="marquee.w1">Innovation</span><span>·</span>
+          <span data-i18n="marquee.w2">Trust</span><span>·</span>
+          <span data-i18n="marquee.w3">Purpose</span><span>·</span>
+          <span data-i18n="marquee.w4">Growth</span><span>·</span>
+          <span data-i18n="marquee.w5">Impact</span><span>·</span>
+          <span data-i18n="marquee.w6">Scalability</span><span>·</span>
+          <span data-i18n="marquee.w7">Constant Evolution</span><span>·</span>
         </div>
       </section>
 
@@ -576,7 +576,7 @@
           <ul class="pillars">
             <li class="pillar" data-pillar tabindex="0">
               <div class="pillar__icon"><svg viewBox="0 0 24 24"><use href="#icon-spark" /></svg></div>
-              <h3>Innovación</h3>
+              <h3 data-i18n="vision.pillar1.h">Innovation</h3>
               <p class="pillar__lead" data-i18n="vision.pillar1.body">
                 We engineer leverage where conventional capital cannot reach —
                 pairing operators with platforms that change the unit economics
@@ -597,7 +597,7 @@
             </li>
             <li class="pillar" data-pillar tabindex="0">
               <div class="pillar__icon"><svg viewBox="0 0 24 24"><use href="#icon-shield" /></svg></div>
-              <h3>Confianza</h3>
+              <h3 data-i18n="vision.pillar2.h">Trust</h3>
               <p class="pillar__lead" data-i18n="vision.pillar2.body">
                 Trust is a structural decision. Governance, transparency and
                 relentless craft are encoded into how every Vanguard venture
@@ -618,7 +618,7 @@
             </li>
             <li class="pillar" data-pillar tabindex="0">
               <div class="pillar__icon"><svg viewBox="0 0 24 24"><use href="#icon-orbit" /></svg></div>
-              <h3>Propósito</h3>
+              <h3 data-i18n="vision.pillar3.h">Purpose</h3>
               <p class="pillar__lead" data-i18n="vision.pillar3.body">
                 We deploy conviction into the categories that compound: real
                 economy, frontier technology and human capital. Purpose is the
@@ -639,7 +639,7 @@
             </li>
             <li class="pillar" data-pillar tabindex="0">
               <div class="pillar__icon"><svg viewBox="0 0 24 24"><use href="#icon-trend" /></svg></div>
-              <h3>Crecimiento</h3>
+              <h3 data-i18n="vision.pillar4.h">Growth</h3>
               <p class="pillar__lead" data-i18n="vision.pillar4.body">
                 Growth is the byproduct of compounding — not the goal. Our
                 operators scale by removing friction, not by adding noise.
@@ -929,7 +929,7 @@
           <div class="pinned__inner">
             <div class="pinned__copy">
               <article class="pinned__stage is-active" data-pinned-stage="0">
-                <p class="pinned__stage-eyebrow">— INNOVACIÓN</p>
+                <p class="pinned__stage-eyebrow" data-i18n="man.stage1.eyebrow">— INNOVATION</p>
                 <h3 class="pinned__stage-title" data-i18n-html="man.stage1.h">
                   We engineer leverage <em>where capital alone</em> cannot reach.
                 </h3>
@@ -941,7 +941,7 @@
               </article>
 
               <article class="pinned__stage" data-pinned-stage="1">
-                <p class="pinned__stage-eyebrow">— CONFIANZA</p>
+                <p class="pinned__stage-eyebrow" data-i18n="man.stage2.eyebrow">— TRUST</p>
                 <h3 class="pinned__stage-title" data-i18n-html="man.stage2.h">
                   Governance and craft, <em>not personality</em>, hold the
                   institution together.
@@ -954,7 +954,7 @@
               </article>
 
               <article class="pinned__stage" data-pinned-stage="2">
-                <p class="pinned__stage-eyebrow">— PROPÓSITO</p>
+                <p class="pinned__stage-eyebrow" data-i18n="man.stage3.eyebrow">— PURPOSE</p>
                 <h3 class="pinned__stage-title" data-i18n-html="man.stage3.h">
                   Capital is deployed where <em>compounding is possible</em> —
                   never where attention is loudest.
@@ -967,9 +967,9 @@
               </article>
 
               <article class="pinned__stage" data-pinned-stage="3">
-                <p class="pinned__stage-eyebrow">— CRECIMIENTO</p>
+                <p class="pinned__stage-eyebrow" data-i18n="man.stage4.eyebrow">— GROWTH</p>
                 <h3 class="pinned__stage-title" data-i18n-html="man.stage4.h">
-                  Growth is the <em>proof</em>. Not the goal.
+                  Growth is the <em>proof.</em> Not the goal.
                 </h3>
                 <p class="pinned__stage-body" data-i18n="man.stage4.p">
                   When the architecture is right and the operators are right, the
@@ -988,10 +988,10 @@
               </div>
               <div class="pinned__mark-floor"></div>
               <ul class="pinned__mark-tags">
-                <li data-tag="0"><span>01</span>Innovación</li>
-                <li data-tag="1"><span>02</span>Confianza</li>
-                <li data-tag="2"><span>03</span>Propósito</li>
-                <li data-tag="3"><span>04</span>Crecimiento</li>
+                <li data-tag="0"><span class="pinned__mark-tags-num">01</span><span data-i18n="man.tag1">Innovation</span></li>
+                <li data-tag="1"><span class="pinned__mark-tags-num">02</span><span data-i18n="man.tag2">Trust</span></li>
+                <li data-tag="2"><span class="pinned__mark-tags-num">03</span><span data-i18n="man.tag3">Purpose</span></li>
+                <li data-tag="3"><span class="pinned__mark-tags-num">04</span><span data-i18n="man.tag4">Growth</span></li>
               </ul>
             </div>
           </div>
@@ -1205,15 +1205,15 @@
           <span class="lockup__chrome-rule"></span>
         </div>
 
-        <h2 class="lockup__display" aria-label="Impacto. Escalabilidad. Evolución constante.">
+        <h2 class="lockup__display" data-i18n-aria="lk.aria" aria-label="Impact. Scalability. Constant evolution.">
           <span class="lockup__line lockup__line--bold" data-lockup-line="0">
-            <span class="lockup__inner-text">IMPACTO</span>
+            <span class="lockup__inner-text" data-i18n="lk.word1">IMPACT</span>
           </span>
           <span class="lockup__line lockup__line--italic" data-lockup-line="1">
-            <span class="lockup__inner-text">escalabilidad</span>
+            <span class="lockup__inner-text" data-i18n="lk.word2">scalability</span>
           </span>
           <span class="lockup__line lockup__line--bold" data-lockup-line="2">
-            <span class="lockup__inner-text">EVOLUCIÓN</span>
+            <span class="lockup__inner-text" data-i18n="lk.word3">EVOLUTION</span>
           </span>
         </h2>
 
@@ -1320,7 +1320,7 @@
       </div>
 
       <div class="footer__bottom">
-        <p data-i18n="ft.bottom">© 2025 Frago Vanguard Group · Impacto · Escalabilidad · Evolución constante</p>
+        <p data-i18n="ft.bottom">© 2025 Frago Vanguard Group · Impact · Scalability · Constant evolution</p>
         <p class="footer__locale">CR · ES · EN</p>
       </div>
     </footer>

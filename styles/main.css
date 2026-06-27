@@ -1667,6 +1667,12 @@ main {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+}
+/* Letters only — .char--space must keep its plain 0.28em box. Adding the
+   italic-clip padding/margin to the space too made every following
+   letter's box start before the space's box even began, eating the
+   word-gap entirely (e.g. "to grow" rendered as "togrow"). */
+.hero__title em .char:not(.char--space) {
   padding: 0 0.35em 0 0;
   margin: 0 -0.35em 0 0;
 }
@@ -2461,11 +2467,22 @@ main {
   font-size: clamp(48px, 5.5vw, 76px);
   line-height: 1;
   letter-spacing: -0.035em;
+  margin: 0;
+}
+/* background-clip:text only clips an element's OWN direct text. The
+   odometer JS rebuilds [data-count] into nested rail/slot spans, so the
+   digits live several levels deep — the gradient has to be applied at
+   that leaf level (same fix as .hero__title em .char) or the numbers
+   paint fully transparent and the cards look empty except for the
+   M+/% suffix. */
+.stat__num [data-count],
+.stat__num .odometer__rail > span,
+.stat__num .odometer__sep {
   background: var(--silver);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin: 0;
+  -webkit-text-fill-color: transparent;
 }
 .stat__suffix {
   color: var(--brand);
@@ -2894,6 +2911,8 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  width: max-content;
+  white-space: nowrap;
   padding: 6px 14px;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -2913,7 +2932,7 @@ main {
     border-color 240ms,
     color 240ms;
 }
-.pinned__mark-tags li span {
+.pinned__mark-tags li .pinned__mark-tags-num {
   color: var(--brand-soft);
 }
 /* Angular positions: top, right, bottom, left */
